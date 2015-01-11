@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var bcrypt = require('bcrypt');
+
 module.exports = {
   connection: 'LocalMySQL',
   tableName: 'users',
@@ -46,5 +48,34 @@ module.exports = {
       columnName: 'updated_at',
       defaultsTo: function (){ return new Date(); }
     }
+  },
+
+  /**
+   * Lifecycle Callbacks
+   *
+   * Run before and after various stages:
+   *
+   * beforeValidate
+   * afterValidate
+   * beforeUpdate
+   * afterUpdate
+   * beforeCreate
+   * afterCreate
+   * beforeDestroy
+   * afterDestroy
+   */
+
+  beforeCreate: function(values, cb) {
+    if (values.password === '') {
+      return cb();
+    }
+
+    // async
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(values.password, salt, function(err, hash) {
+        values.password = hash;
+        cb();
+      });
+    });
   }
 };
