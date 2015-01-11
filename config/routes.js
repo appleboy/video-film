@@ -34,6 +34,12 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+
+  '/welcome': {
+    view: 'welcome/index',
+    controller: 'Welcome',
+    action: 'index'
   }
 
   /***************************************************************************
