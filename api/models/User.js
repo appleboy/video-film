@@ -5,8 +5,6 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-var bcrypt = require('bcrypt');
-
 module.exports = {
   connection: 'LocalMySQL',
   tableName: 'users',
@@ -18,6 +16,7 @@ module.exports = {
     },
     password: {
       type: 'string',
+      minLength: 6,
       columnName: 'password'
     },
     first_name: {
@@ -59,15 +58,21 @@ module.exports = {
    * afterDestroy
    */
 
-  beforeCreate: function(values, cb) {
-    if (values.password === '') {
+  beforeCreate: function(attrs, cb) {
+    var bcrypt = require('bcrypt');
+
+    if (attrs.password === '') {
       return cb();
     }
 
     // async
     bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(values.password, salt, function(err, hash) {
-        values.password = hash;
+      if (err) {
+        return cb(err);
+      }
+
+      bcrypt.hash(attrs.password, salt, function(err, hash) {
+        attrs.password = hash;
         cb();
       });
     });
