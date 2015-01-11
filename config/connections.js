@@ -19,6 +19,9 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.connections.html
  */
 
+var dotenv = require('dotenv');
+dotenv.load();
+
 module.exports.connections = {
 
   /***************************************************************************
@@ -42,10 +45,10 @@ module.exports.connections = {
   ***************************************************************************/
   LocalMySQL: {
     adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'video-film'
+    host: process.env.MYSQL_HOST || 'localhost',
+    user: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_PASSWORD || '',
+    database: process.env.MYSQL_DATABASE || 'sails'
   },
 
   /***************************************************************************
