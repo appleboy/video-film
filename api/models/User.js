@@ -11,12 +11,6 @@ module.exports = {
   connection: 'LocalMySQL',
   tableName: 'users',
   attributes: {
-    id: {
-      type: 'integer',
-      unique: true,
-      primaryKey: true,
-      columnName: 'id'
-    },
     email: {
       type: 'email',
       unique: true,
