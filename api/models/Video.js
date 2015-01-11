@@ -63,11 +63,10 @@ module.exports = {
   // get latest records
   latest: function(req, callback) {
     var limit = +req.param('limit') || 10,
-      skip = +req.param('skip') || 0;
+      page = +req.param('page') || 1;
 
     return this.find()
-      .limit(limit)
-      .skip(skip)
+      .paginate({page: page, limit: limit})
       .sort('id desc')
       .exec(callback);
   }
