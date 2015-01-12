@@ -33,9 +33,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    controllers: 'WelcomeController',
+    controllers: 'Welcome',
     action: 'index',
     view: 'welcome/index'
+  },
+
+  'GET /top_plays/:tag': {
+    controller: 'Nba',
+    action: 'show'
   }
 
   /***************************************************************************

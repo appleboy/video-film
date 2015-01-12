@@ -10,6 +10,18 @@ module.exports = {
     Video.latest(req, function (error, data) {
       return res.json(data);
     });
+  },
+
+  show: function (req, res) {
+    var tag = req.param('tag') || '';
+
+    if (tag === '') {
+      return res.redirect('/');
+    }
+
+    Tag.videos(req, function (error, data) {
+      return res.json(data);
+    });
   }
 };
 
