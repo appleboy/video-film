@@ -26,7 +26,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       type: 'date',
       columnName: 'date'
     },
-    game_date: function () {
+    gameDate: function () {
       return moment(this.date).format('YYYY-MM-DD');
     },
     src: {
