@@ -10,8 +10,9 @@ module.exports = {
     var ajax = _.contains(req.path, 'ajax');
 
     Tag.videos(req, function (data) {
+      data = (ajax) ? _.merge(data, {layout: null}) : data;
 
-      return (ajax) ? res.view('nba/index', _.merge(data, {layout: null})) : res.view('nba/index', data);
+      return res.view('nba/index', data);
     });
   },
 
@@ -26,8 +27,9 @@ module.exports = {
 
     Tag.videos(req, function (data) {
       data = _.merge({tag: tag, top_plays: top_plays}, data);
+      data = (ajax) ? _.merge(data, {layout: null}) : data;
 
-      return (ajax) ? res.view('nba/list', _.merge(data, {layout: null})) : res.view('nba/list', data);
+      return res.view('nba/list', data);
     });
   }
 };

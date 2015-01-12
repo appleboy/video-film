@@ -80,10 +80,10 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .sort('id desc');
 
     Promise.props({
-        total_counts: countPromise,
-        videos: findPromise
+      total_counts: countPromise,
+      videos: findPromise
     }).then(function(result) {
-        callback(result);
+      callback(result);
     });
   }
 });
