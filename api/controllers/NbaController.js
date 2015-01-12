@@ -7,7 +7,7 @@
 
 module.exports = {
   latest: function (req, res) {
-    Video.latest(req, function (error, data) {
+    Video.latest(req, function (data) {
       return res.json(data);
     });
   },
@@ -19,7 +19,7 @@ module.exports = {
       return res.redirect('/');
     }
 
-    Tag.videos(req, function (error, data) {
+    Tag.videos(req, function (data) {
       return res.json(data);
     });
   }

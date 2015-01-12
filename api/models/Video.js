@@ -5,7 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-var BaseModel = require('../services/BaseModel');
+var BaseModel = require('../services/BaseModel'),
+  Promise = require('bluebird');
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'videos',
@@ -67,12 +68,18 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
 
   // get latest records
   latest: function(req, callback) {
-    var limit = +req.param('limit') || 10,
-      page = +req.param('page') || 1;
+    var limit = +req.param('limit') || this.limit,
+      page = +req.param('page') || this.page,
+      countPromise = this.count(),
+      findPromise = this.find()
+        .paginate({page: page, limit: limit})
+        .sort('id desc');
 
-    return this.find()
-      .paginate({page: page, limit: limit})
-      .sort('id desc')
-      .exec(callback);
+    Promise.props({
+        total_counts: countPromise,
+        videos: findPromise
+    }).then(function(result) {
+        callback(result);
+    });
   }
 });
