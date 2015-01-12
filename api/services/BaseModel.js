@@ -6,7 +6,7 @@
 */
 
 module.exports = {
-  limit: 20,
+  limit: 30,
   page: 1
 };
 

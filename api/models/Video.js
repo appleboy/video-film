@@ -6,7 +6,8 @@
 */
 
 var BaseModel = require('../services/BaseModel'),
-  Promise = require('bluebird');
+  Promise = require('bluebird'),
+  moment = require('moment');
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'videos',
@@ -24,6 +25,9 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     date: {
       type: 'date',
       columnName: 'date'
+    },
+    game_date: function () {
+      return moment(this.date).format('YYYY-MM-DD');
     },
     src: {
       type: 'string',

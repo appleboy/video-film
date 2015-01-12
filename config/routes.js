@@ -38,7 +38,7 @@ module.exports.routes = {
     view: 'welcome/index'
   },
 
-  'GET /top_plays/:tag': {
+  'GET r|^/top_plays/(\\w+)(/ajax)?$|tag': {
     controller: 'Nba',
     action: 'show'
   }

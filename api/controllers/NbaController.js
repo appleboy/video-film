@@ -14,13 +14,16 @@ module.exports = {
 
   show: function (req, res) {
     var tag = req.param('tag') || '';
+      ajax = _.contains(req.path, 'ajax');
 
     if (tag === '') {
       return res.redirect('/');
     }
 
     Tag.videos(req, function (data) {
-      return res.json(data);
+      data = _.merge({tag: tag}, data);
+
+      return (ajax) ? res.view('nba/list', _.merge(data, {layout: null})) : res.view('nba/list', data);
     });
   }
 };
