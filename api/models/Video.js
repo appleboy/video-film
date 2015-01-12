@@ -6,7 +6,6 @@
 */
 
 module.exports = {
-  connection: 'LocalMySQL',
   tableName: 'videos',
   attributes: {
     nba_id: {
@@ -48,6 +47,10 @@ module.exports = {
       columnName: 'view_counts',
       defaultsTo: 0
     },
+    tinyurl: 'string',
+    url: 'string',
+    share_url: 'string',
+    comment: 'string',
     created_at: {
       type: 'datetime',
       columnName: 'created_at',

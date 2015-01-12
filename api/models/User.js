@@ -6,7 +6,6 @@
 */
 
 module.exports = {
-  connection: 'LocalMySQL',
   tableName: 'users',
   attributes: {
     email: {
