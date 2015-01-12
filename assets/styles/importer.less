@@ -48,13 +48,17 @@ body {
   width: auto;
 }
 
-.thumbnail .images {
-  width: 100%;
-  height: 110px;
-  background-size: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+.thumbnail {
+  .images {
+    width: 100%;
+    height: 110px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: block;
+  }
+
   .duration {
     position: absolute;
     right: 0px;
@@ -63,12 +67,20 @@ body {
     color: #fff;
     padding: 2px;
   }
+
+  &:hover {
+    border: 1px solid #337AB7;
+  }
+
+  .title {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.1em;
+  }
 }
 
-.thumbnail .title {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1.1em;
+.navbar-inverse .navbar-nav > li > a.active {
+  color: #fff;
 }
