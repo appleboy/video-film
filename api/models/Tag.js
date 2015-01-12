@@ -5,7 +5,9 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-module.exports = {
+var BaseModel = require('../services/BaseModel');
+
+module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'video_tag',
   attributes: {
     date : { type: 'date' },
@@ -19,8 +21,8 @@ module.exports = {
 
   // get latest records
   videos: function(req, callback) {
-    var limit = +req.param('limit') || 10,
-      page = +req.param('page') || 1,
+    var limit = +req.param('limit') || this.limit,
+      page = +req.param('page') || this.page,
       tag = req.param('tag') || ''
 
     return this.find({
@@ -31,5 +33,4 @@ module.exports = {
       .sort('id desc')
       .exec(callback);
   }
-};
-
+});

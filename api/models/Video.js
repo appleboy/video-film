@@ -5,7 +5,9 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-module.exports = {
+var BaseModel = require('../services/BaseModel');
+
+module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'videos',
   attributes: {
     nba_id: {
@@ -73,5 +75,4 @@ module.exports = {
       .sort('id desc')
       .exec(callback);
   }
-};
-
+});

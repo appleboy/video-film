@@ -5,7 +5,9 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-module.exports = {
+var BaseModel = require('../services/BaseModel');
+
+module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'users',
   attributes: {
     email: {
@@ -78,4 +80,4 @@ module.exports = {
       });
     });
   }
-};
+});
