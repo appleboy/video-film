@@ -6,9 +6,12 @@
  */
 
 module.exports = {
-  latest: function (req, res) {
-    Video.latest(req, function (data) {
-      return res.json(data);
+  index: function (req, res) {
+    var ajax = _.contains(req.path, 'ajax');
+
+    Tag.videos(req, function (data) {
+
+      return (ajax) ? res.view('nba/index', _.merge(data, {layout: null})) : res.view('nba/index', data);
     });
   },
 

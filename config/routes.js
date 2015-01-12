@@ -32,11 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    controllers: 'Welcome',
-    action: 'index',
-    view: 'welcome/index'
-  },
+  '/': 'NbaController.index',
 
   'GET r|^/top_plays/(\\w+)(/ajax)?$|tag': {
     controller: 'Nba',

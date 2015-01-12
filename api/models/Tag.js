@@ -25,10 +25,17 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     var limit = +req.param('limit') || this.limit,
       page = +req.param('page') || this.page,
       tag = req.param('tag') || '',
-      countPromise = this.count({'name': tag }),
-      findPromise = this.find({
-          'name': tag
-        }).populate('video')
+      where = where || {};
+
+    if (tag !== '') {
+      where = {
+        'name': tag
+      };
+    }
+
+    var countPromise = this.count(where),
+      findPromise = this.find(where)
+        .populate('video')
         .paginate({page: page, limit: limit})
         .sort('id desc');
 
