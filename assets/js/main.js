@@ -43,4 +43,10 @@
     }
   });
 
+  videojs("video").ready(function(){
+    var myPlayer = this;
+
+    //myPlayer.play();
+  });
+
 })(window, document);

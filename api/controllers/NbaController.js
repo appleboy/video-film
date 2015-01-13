@@ -44,13 +44,13 @@ module.exports = {
   show: function (req, res) {
     var nba_id = req.param('nba_id') || '',
       type = req.param('type') || '',
-      tag = req.param('tag') || 'top10';
+      tag = 'top10';
 
     if (format.isEmpty(nba_id) || format.isEmpty(type)) {
       return res.redirect('/');
     }
 
-    var relatedPromise = Tag.videos({tag: tag, promise: true}),
+    var relatedPromise = Tag.videos({limit: 10, tag: tag, promise: true}),
       findPromise = Video.findOne()
         .where({nba_id: nba_id});
 
@@ -58,7 +58,7 @@ module.exports = {
       related: relatedPromise,
       video: findPromise
     }).then(function(result) {
-      return res.json(result);
+      res.view('nba/show', result);
     });
   }
 };
