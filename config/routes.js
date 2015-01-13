@@ -34,9 +34,14 @@ module.exports.routes = {
 
   '/': 'NbaController.index',
 
-  'GET r|^/top_plays/(\\w+)(/ajax)?$|tag': {
+  'GET r|^(/video/(\\w+)/([\\w_-]+)/\\d+/\\d+/\\d+/[\\w-\.]+)|nba_id,type,tag': {
     controller: 'Nba',
     action: 'show'
+  },
+
+  'GET r|^/top_plays/(\\w+)(/ajax)?$|tag': {
+    controller: 'Nba',
+    action: 'list'
   }
 
   /***************************************************************************

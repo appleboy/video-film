@@ -21,10 +21,11 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
   },
 
   // get latest records
-  videos: function(req, callback) {
-    var limit = +req.param('limit') || this.limit,
-      page = +req.param('page') || this.page,
-      tag = req.param('tag') || '',
+  videos: function(param, callback) {
+    var limit = +param.limit || this.limit,
+      page = +param.page || this.page,
+      tag = param.tag || '',
+      promise = param.promise || false,
       where = where || {};
 
     if (tag !== '') {
@@ -39,11 +40,20 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .paginate({page: page, limit: limit})
         .sort('id desc');
 
-    Promise.props({
+    if (promise) {
+      return Promise.props({
         total_counts: countPromise,
         videos: findPromise
-    }).then(function(result) {
-        callback(result);
-    });
+      });
+    } else {
+      Promise.props({
+        total_counts: countPromise,
+        videos: findPromise
+      }).then(function(result) {
+        if (typeof callback === 'function') {
+          callback(result);
+        }
+      });
+    }
   }
 });

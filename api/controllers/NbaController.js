@@ -5,7 +5,9 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var transformation = require('../services/utils/transformations');
+var transformation = require('../services/utils/transformations'),
+  format = require('../services/utils/format'),
+  Promise = require('bluebird');
 
 module.exports = {
   index: function (req, res) {
@@ -18,7 +20,7 @@ module.exports = {
     });
   },
 
-  show: function (req, res) {
+  list: function (req, res) {
     var tag = req.param('tag') || '';
       ajax = _.contains(req.path, 'ajax'),
       top_plays = _.contains(req.path, 'top_plays');
@@ -27,7 +29,7 @@ module.exports = {
       return res.redirect('/');
     }
 
-    Tag.videos(req, function (data) {
+    Tag.videos(req.allParams(), function (data) {
       data = _.merge({title: transformation.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
@@ -36,6 +38,27 @@ module.exports = {
       }
 
       return res.view(((ajax) ? 'partials/video' : 'nba/list'), data);
+    });
+  },
+
+  show: function (req, res) {
+    var nba_id = req.param('nba_id') || '',
+      type = req.param('type') || '',
+      tag = req.param('tag') || 'top10';
+
+    if (format.isEmpty(nba_id) || format.isEmpty(type)) {
+      return res.redirect('/');
+    }
+
+    var relatedPromise = Tag.videos({tag: tag, promise: true}),
+      findPromise = Video.findOne()
+        .where({nba_id: nba_id});
+
+    Promise.props({
+      related: relatedPromise,
+      video: findPromise
+    }).then(function(result) {
+      return res.json(result);
     });
   }
 };
