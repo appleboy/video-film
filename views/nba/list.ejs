@@ -1,3 +1,6 @@
+<div class="page-header">
+  <h2><%= title %></h2>
+</div>
 <div class="row" id="video_list">
   <%- partial('../partials/video.ejs') %>
   <p data-module="loading" data-url="/top_plays/<%= tag %>/ajax" data-limit="30" data-page="1"></p>

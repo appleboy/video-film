@@ -5,6 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var utility = require('../services/Utility');
+
 module.exports = {
   index: function (req, res) {
     var ajax = _.contains(req.path, 'ajax');
@@ -26,10 +28,10 @@ module.exports = {
     }
 
     Tag.videos(req, function (data) {
-      data = _.merge({tag: tag, top_plays: top_plays}, data);
+      data = _.merge({title: utility.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
-      return res.view('nba/list', data);
+      return res.view(((ajax) ? 'partials/video' : 'nba/list'), data);
     });
   }
 };
