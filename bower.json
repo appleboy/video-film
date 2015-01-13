@@ -1,0 +1,14 @@
+{
+  "name": "video-film",
+  "version": "0.0.1",
+  "homepage": "https://github.com/appleboy/video-film",
+  "authors": [
+    "Bo-Yi Wu <appleboy.tw@gmail.com>"
+  ],
+  "description": "Example for Sails Node.js MVC Framework",
+  "license": "BSD",
+  "private": true,
+  "dependencies": {
+    "jquery.scrollTo": "~1.4.14"
+  }
+}
