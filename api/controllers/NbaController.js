@@ -5,7 +5,7 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var utility = require('../services/Utility');
+var transformation = require('../services/utils/transformations');
 
 module.exports = {
   index: function (req, res) {
@@ -28,8 +28,12 @@ module.exports = {
     }
 
     Tag.videos(req, function (data) {
-      data = _.merge({title: utility.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
+      data = _.merge({title: transformation.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
       data = (ajax) ? _.merge(data, {layout: null}) : data;
+
+      if (data.total_counts === 0) {
+        return res.redirect('/');
+      }
 
       return res.view(((ajax) ? 'partials/video' : 'nba/list'), data);
     });

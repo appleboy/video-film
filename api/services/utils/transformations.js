@@ -5,6 +5,9 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+var util = require('./helpers'),
+  hop = util.object.hasOwnProperty;
+
 module.exports = {
   ReplaceTag: function(str) {
     var replace_object = {
@@ -18,7 +21,9 @@ module.exports = {
       'assist': '每日助攻'
     };
 
-    return replace_object[str] ? str.replace(str, replace_object[str]) : '精華賽事';
+    str = str === null ? '' : String(str);
+
+    return hop(replace_object, str) ? str.replace(str, replace_object[str]) : '精華賽事';
   }
 };
 
