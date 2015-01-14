@@ -58,8 +58,13 @@ module.exports = {
       related: relatedPromise,
       video: findPromise
     }).then(function(result) {
+      // set title and description
       result.title = result.video.title;
       result.description = result.video.description;
+
+      // update view count
+      Video.increase('view_counts', result.video.id);
+
       res.view('nba/show', result);
     });
   }
