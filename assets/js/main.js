@@ -14,7 +14,7 @@
 
   // intiial video player
   myPlayer.ready(function(){
-    //this.play();
+    this.play();
   });
 
   // scroll to top
