@@ -58,6 +58,8 @@ module.exports = {
       related: relatedPromise,
       video: findPromise
     }).then(function(result) {
+      result.title = result.video.title;
+      result.description = result.video.description;
       res.view('nba/show', result);
     });
   }

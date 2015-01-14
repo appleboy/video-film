@@ -6,13 +6,27 @@
   var $b = (window.opera) ?
     (document.compatMode === 'CSS1Compat' ? $('html') : $('body')) :
     $('html,body');
+  var myPlayer = videojs("video");
 
+  // intiial video player
+  myPlayer.ready(function(){
+    this.play();
+  });
+
+  // scroll to top
   $g.on('click', function(e) {
     $b.animate({
       scrollTop: 0
     }, 600, function () {
       $b.scrollTop(0);
     });
+  });
+
+  // allow video full screen
+  $('#fullscreen').on('click', function(e) {
+    if (!myPlayer.isFullscreen()){
+      myPlayer.requestFullscreen();
+    }
   });
 
   if (loading) {
@@ -33,20 +47,14 @@
     });
   }
 
- $w.scroll(function(event) {
+  // show scrollup element.
+  $w.scroll(function(event) {
     var scroll = $w.scrollTop();
-    // Do something
     if (scroll > 500) {
       $g.show(200);
     } else {
       $g.hide(200);
     }
-  });
-
-  videojs("video").ready(function(){
-    var myPlayer = this;
-
-    //myPlayer.play();
   });
 
 })(window, document);

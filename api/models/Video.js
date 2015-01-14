@@ -7,7 +7,8 @@
 
 var BaseModel = require('../services/BaseModel'),
   Promise = require('bluebird'),
-  moment = require('moment');
+  moment = require('moment'),
+  numbers = require('../services/utils/numbers');
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'videos',
@@ -53,6 +54,9 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       type: 'integer',
       columnName: 'view_counts',
       defaultsTo: 0
+    },
+    getViewCounts: function() {
+      return numbers.addCommas(this.view_counts);
     },
     tinyurl: 'string',
     url: 'string',
