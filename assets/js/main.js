@@ -8,9 +8,13 @@
     $('html,body');
   var myPlayer = videojs("video");
 
+  var addCommas = function (number) {
+    return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  };
+
   // intiial video player
   myPlayer.ready(function(){
-    this.play();
+    //this.play();
   });
 
   // scroll to top
@@ -55,6 +59,11 @@
     } else {
       $g.hide(200);
     }
+  });
+
+  // socket io.js
+  io.socket.on('view_counts', function(msg) {
+    $('[data-module="view_counts"][data-nba-id="' + msg.nba_id + '"]').text(addCommas(msg.view_counts + 1));
   });
 
 })(window, document);

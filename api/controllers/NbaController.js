@@ -58,12 +58,23 @@ module.exports = {
       related: relatedPromise,
       video: findPromise
     }).then(function(result) {
+
+      // check video exist
+      if (typeof result.video === 'undefined') {
+        return res.redirect('/');
+      }
+
       // set title and description
       result.title = result.video.title;
       result.description = result.video.description;
 
       // update view count
       Video.increase('view_counts', result.video.id);
+
+      sails.sockets.blast('view_counts', {
+        nba_id: result.video.nba_id,
+        view_counts: +result.video.view_counts
+      }, req.socket);
 
       res.view('nba/show', result);
     });

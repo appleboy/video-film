@@ -37,6 +37,7 @@ module.exports.sockets = {
   onDisconnect: function(session, socket) {
 
     // By default: do nothing.
+
   },
 
 
@@ -63,7 +64,7 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
 
-  // adapter: 'memory',
+  adapter: 'memory',
 
   /***************************************************************************
   *                                                                          *
@@ -146,7 +147,7 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
 
-  // authorization: false,
+  authorization: false,
 
   /***************************************************************************
   *                                                                          *
