@@ -38,7 +38,7 @@
         <span class="duration"><%= item.video.duration %></span>
       </a>
       <p style="margin: 5px 0px;"><%= item.video.title %></p>
-      <span class="view-count"><%= item.video.getViewCounts() %> 觀看</span>
+      <p class="clearfix nba-info"><span class="view-count"><%= item.video.getViewCounts() %> 觀看</span><span class="game-date"><%= item.video.gameDate() %></span></p>
     </div>
   </div>
   <% }) %>
