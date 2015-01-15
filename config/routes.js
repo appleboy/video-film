@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': 'NbaController.index',
 
-  'GET r|^(/video/(\\w+)/([\\w_-]+)/\\d+/\\d+/\\d+/[\\w-\.]+)|nba_id,type,tag': {
+  'GET r|^(/video/(\\w+)/([\\w_-]+)/\\d+/\\d+/\\d+/[\\w-\.]+)|nba_id,type,channel': {
     controller: 'Nba',
     action: 'show'
   },

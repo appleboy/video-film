@@ -44,7 +44,7 @@ module.exports = {
   show: function (req, res) {
     var nba_id = req.param('nba_id') || '',
       type = req.param('type') || '',
-      tag = 'top10';
+      tag = req.param('tag') || transformation.getStringTag(nba_id);
 
     if (format.isEmpty(nba_id) || format.isEmpty(type)) {
       return res.redirect('/');

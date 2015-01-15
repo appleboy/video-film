@@ -24,6 +24,35 @@ module.exports = {
     str = str === null ? '' : String(str);
 
     return hop(replace_object, str) ? str.replace(str, replace_object[str]) : '精華賽事';
+  },
+
+  getStringTag: function (str) {
+    var tag, replace_rexp = {
+      'play_week': /(plays-of-the-week|plays-week|potw)\.nba/,
+      'top10': /top-?10/,
+      'zap': /(daily-)?zap\.nba/,
+      'dunk': /dunk/,
+      'steal': /steal/,
+      'nightly': /nightly/,
+      'assist': /assist/,
+      'block': /block/
+    };
+
+    _.forEach(replace_rexp, function(value, key) {
+      if (value.test(str)) {
+        tag = key
+        return false;
+      }
+    });
+
+    return tag ? tag : this.getRandomTag();
+  },
+
+  getRandomTag: function () {
+    var tags = ['top10', 'play_week', 'zap', 'dunk',
+      'steal', 'nightly', 'block', 'assist'];
+
+    return tags[_.random(tags.length)];
   }
 };
 
