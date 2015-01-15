@@ -23,8 +23,10 @@ module.exports.sockets = {
   ***************************************************************************/
   onConnect: function(session, socket) {
 
-    // By default, do nothing.
-
+    // Broadcast online user.
+    sails.sockets.blast('online_user_counts', {
+      online_user_counts: sails.sockets.subscribers().length
+    });
   },
 
 
@@ -36,8 +38,10 @@ module.exports.sockets = {
   ***************************************************************************/
   onDisconnect: function(session, socket) {
 
-    // By default: do nothing.
-
+    // Broadcast online user.
+    sails.sockets.blast('online_user_counts', {
+      online_user_counts: sails.sockets.subscribers().length
+    });
   },
 
 
@@ -50,12 +54,12 @@ module.exports.sockets = {
   * flashsockets by adding 'flashsocket' to this list:                       *
   *                                                                          *
   ***************************************************************************/
-  // transports: [
-  //   'websocket',
-  //   'htmlfile',
-  //   'xhr-polling',
-  //   'jsonp-polling'
-  // ],
+  transports: [
+    'websocket',
+    'htmlfile',
+    'xhr-polling',
+    'jsonp-polling'
+  ],
 
   /***************************************************************************
   *                                                                          *

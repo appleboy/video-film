@@ -6,16 +6,18 @@
   var $b = (window.opera) ?
     (document.compatMode === 'CSS1Compat' ? $('html') : $('body')) :
     $('html,body');
-  var myPlayer = videojs("video");
 
   var addCommas = function (number) {
     return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   };
 
   // intiial video player
-  myPlayer.ready(function(){
-    this.play();
-  });
+  if ($('#video').length > 0) {
+    var myPlayer = videojs("video");
+    myPlayer.ready(function(){
+      this.play();
+    });
+  }
 
   // scroll to top
   $g.on('click', function(e) {
@@ -64,6 +66,9 @@
   // socket io.js
   io.socket.on('view_counts', function(msg) {
     $('[data-module="view_counts"][data-nba-id="' + msg.nba_id + '"]').text(addCommas(msg.view_counts + 1));
+  }).on('online_user_counts', function(msg) {
+    console.log(msg);
+    $('.online_user_counts').text(addCommas(msg.online_user_counts));
   });
 
 })(window, document);

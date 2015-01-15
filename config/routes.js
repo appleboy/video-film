@@ -42,7 +42,7 @@ module.exports.routes = {
   'GET r|^/top_plays/(\\w+)(/ajax)?$|tag': {
     controller: 'Nba',
     action: 'list'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
