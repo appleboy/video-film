@@ -8,8 +8,20 @@
       <h2><%= video.title %></h2>
       <p><span class="label label-default"><%= video.gameDate() %></span>&nbsp;<%= video.description %></p>
       <p class="control-bar">
-        <a class="btn btn-primary"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 影片下載</a>&nbsp;
+        <a class="btn btn-primary"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 影片下載</a>
         <button id="fullscreen" type="button" class="btn btn-success"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> 線上大螢幕</button>
+        <a class="btn btn-social btn-facebook">
+          <i class="fa fa-facebook"></i>
+          分享
+        </a>
+        <a class="btn btn-social btn-twitter">
+          <i class="fa fa-twitter"></i>
+          分享
+        </a>
+        <a class="btn btn-social btn-google-plus">
+          <i class="fa fa-google-plus"></i>
+          分享
+        </a>
         <span class="watch-view-count"><span data-module="view_counts" data-nba-id="<%= video.nba_id %>"><%= video.getViewCounts() %></span>&nbsp;<sapn style="font-size:12px">觀看</span></span>
       </p>
       <div id="disqus_thread"></div>
