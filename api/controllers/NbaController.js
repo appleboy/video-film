@@ -102,6 +102,7 @@ module.exports = {
 
       data = {
         q: q,
+        title: '搜尋關鍵字: ' + q,
         total_counts: numbers.addCommas(total_counts),
         videos: videos
       };
