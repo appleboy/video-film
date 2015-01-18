@@ -8,7 +8,15 @@
 var BaseModel = require('../services/BaseModel'),
   Promise = require('bluebird'),
   moment = require('moment'),
-  numbers = require('../services/utils/numbers');
+  numbers = require('../services/utils/numbers'),
+  ElasticSearchClient = require('elasticsearchclient');
+
+var serverOptions = {
+  hosts:[{
+    host: 'localhost',
+    port: 9200
+  }]
+};
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'videos',
@@ -89,5 +97,40 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     }).then(function(result) {
       callback(result);
     });
+  },
+
+  search: function(param, callback) {
+    var limit = +param.limit || this.limit,
+      page = +param.page || this.page,
+      q = param.q || '',
+      elasticSearchClient = new ElasticSearchClient(serverOptions)
+      qryObj = {"query":
+        {"bool":
+          {"must":
+            [{
+              "query_string": {"default_field": "_all","query": q}
+            }],
+            "must_not": [],
+            "should": []
+          }
+        },
+        "from": (page - 1) * limit,
+        "size": limit,
+        "sort":[{ "date" : {"order" : "desc"}}],
+        "facets":{}
+      };
+
+    var elasticSearchClient = new ElasticSearchClient(serverOptions);
+
+    elasticSearchClient.search('video-film', 'videos', qryObj)
+      .on('data', function(data) {
+        var data = JSON.parse(data);
+        callback(data);
+      }).on('done', function(){
+        //always returns 0 right now
+      }).on('error', function(error){
+        console.log(error);
+      })
+      .exec()
   }
 });

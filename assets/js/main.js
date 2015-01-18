@@ -44,7 +44,8 @@
     $(window).scroll(function() {
       if (!is_ajax && ($(window).scrollTop() + $(window).height() > $(document).height() - 100)) {
         is_ajax = true;
-        $.get(url, {limit: limit, page: page}, function(data) {
+        $.get(url, {limit: limit, page: page, ajax: true}, function(data) {
+          console.log(data);
           $('#video_list').append(data);
           page += 1;
           is_ajax = false;

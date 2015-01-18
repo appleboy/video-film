@@ -7,7 +7,8 @@
 
 var transformation = require('../services/utils/transformations'),
   format = require('../services/utils/format'),
-  Promise = require('bluebird');
+  Promise = require('bluebird'),
+  numbers = require('../services/utils/numbers');
 
 module.exports = {
   index: function (req, res) {
@@ -77,6 +78,37 @@ module.exports = {
       }, req.socket);
 
       res.view('nba/show', result);
+    });
+  },
+
+  search: function (req, res) {
+    var q = req.param('q') || '',
+      ajax = req.param('ajax') || false;
+
+    if (format.isEmpty(q)) {
+      return res.redirect('/');
+    }
+
+    Video.search(req.allParams(), function (data) {
+      var total_counts = data.hits.total,
+        rows = data.hits.hits,
+        videos = [];
+
+      _(rows).map(function(row) {
+        var item = new Video._model(row._source);
+
+        videos.push(item);
+      });
+
+      data = {
+        q: q,
+        total_counts: numbers.addCommas(total_counts),
+        videos: videos
+      };
+
+      data = (ajax) ? _.merge(data, {layout: null}) : data;
+
+      return res.view(((ajax) ? 'partials/video' : 'nba/search'), data);;
     });
   }
 };

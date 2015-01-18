@@ -39,6 +39,8 @@ module.exports.routes = {
     action: 'show'
   },
 
+  'GET /search': 'NbaController.search',
+
   'GET r|^/top_plays/(\\w+)(/ajax)?$|tag': {
     controller: 'Nba',
     action: 'list'
