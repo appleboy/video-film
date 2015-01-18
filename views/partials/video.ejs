@@ -6,7 +6,7 @@
     </a>
     <div class="caption">
       <h3 class="title"><%= item.video.title %></h3>
-      <p style="text-align:center"><a href="<%= item.video.src %>" target="_blank" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> 下載</a> <a href="<%= item.video.nba_id %>" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> 觀看</a></p>
+      <p style="text-align:center"><a href="<%= item.video.src %>" target="_blank" class="btn btn-primary btn-sm" role="button"><span class="fa fa-cloud-download" aria-hidden="true"></span> 下載</a> <a href="<%= item.video.nba_id %>" class="btn btn-success btn-sm" role="button"><span class="fa fa-video-camera" aria-hidden="true"></span> 觀看</a></p>
       <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= item.video.nba_id %>"><%= item.video.getViewCounts() %></span> 觀看</span><span class="game-date"><%= item.video.gameDate() %></span></p>
     </div>
   </div>

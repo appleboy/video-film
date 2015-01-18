@@ -89,9 +89,14 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right">
+      <form action="/search" method="GET" class="navbar-form navbar-right">
         <ul class="nav nav-pills" role="tablist">
-          <li role="presentation" class="active"><a href="#">線上人數 <span class="online_user_counts badge">0</span></a></li>
+          <li role="presentation" class="active">
+            <div class="form-group">
+              <input type="text" placeholder="Search Keyword" class="form-control" name="q">
+            </div>
+          </li>
+          <li><button class="btn btn-warning" type="button"><span class="fa fa-user" aria-hidden="true"></span> 線上人數 <span class="online_user_counts badge">0</span></button></li>
         </ul>
       </form>
     </div><!--/.nav-collapse -->
