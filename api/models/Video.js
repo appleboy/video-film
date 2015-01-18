@@ -99,16 +99,16 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
   search: function(param, callback) {
     var limit = +param.limit || this.limit,
       page = +param.page || this.page,
-      q = param.q || '';
+      q = param.q || '',
+      options = {
+        index: 'video-film',
+        from: (page - 1) * limit,
+        size: limit,
+        sort:"date:desc",
+        q: encodeURIComponent(q)
+      };
 
-    ElasticSearchClient.search({
-      index: 'video-film',
-      from: (page - 1) * limit,
-      size: limit,
-      sort:"date:desc",
-      q: encodeURIComponent(q),
-      scroll: '30s'
-    }, function (err, response, status) {
+    ElasticSearchClient.search(options, function (err, response, status) {
 
       if (err) {
         return;
