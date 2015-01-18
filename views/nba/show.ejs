@@ -10,15 +10,15 @@
       <p class="control-bar">
         <a class="btn btn-primary"><span class="fa fa-cloud-download" aria-hidden="true"></span> 影片下載</a>
         <button id="fullscreen" type="button" class="btn btn-success"><span class="fa fa-video-camera" aria-hidden="true"></span> 線上大螢幕</button>
-        <a class="btn btn-social btn-facebook">
+        <a class="btn btn-social btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<%= req.baseUrl + encodeURI(req.url) %>">
           <i class="fa fa-facebook"></i>
           分享
         </a>
-        <a class="btn btn-social btn-twitter">
+        <a class="btn btn-social btn-twitter" href="https://twitter.com/home?status=<%= req.baseUrl + encodeURI(req.url) %>">
           <i class="fa fa-twitter"></i>
           分享
         </a>
-        <a class="btn btn-social btn-google-plus">
+        <a class="btn btn-social btn-google-plus" href="https://plus.google.com/share?url=<%= req.baseUrl + encodeURI(req.url) %>">
           <i class="fa fa-google-plus"></i>
           分享
         </a>
