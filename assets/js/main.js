@@ -45,9 +45,15 @@
       if (!is_ajax && ($(window).scrollTop() + $(window).height() > $(document).height() - 100)) {
         is_ajax = true;
         $.get(url, {limit: limit, page: page, ajax: true}, function(data) {
-          $('#video_list').append(data);
-          page += 1;
-          is_ajax = false;
+          if ($.trim(data) != '') {
+            $('#video_list').append(data);
+            page += 1;
+            is_ajax = false;
+          } else {
+            window.setTimeout(function(){
+              is_ajax = false;
+            }, 10000);
+          }
         }, 'html');
       }
     });
