@@ -22,7 +22,7 @@
           <i class="fa fa-google-plus"></i>
           分享
         </a>
-        <span class="watch-view-count"><span data-module="view_counts" data-nba-id="<%= video.nba_id %>"><%= video.getViewCounts() %></span>&nbsp;<sapn style="font-size:12px">觀看</span></span>
+        <span class="watch-view-count"><span data-module="view_counts" data-nba-id="<%= video.nba_id %>"><%= video.getViewCounts() %></span>&nbsp;<sapn style="font-size:12px">瀏覽</span></span>
       </p>
       <div id="disqus_thread"></div>
       <script type="text/javascript">
@@ -48,7 +48,7 @@
         <span class="duration"><%= item.video.duration %></span>
       </a>
       <p style="margin: 5px 0px;"><%= item.video.title %></p>
-      <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= item.video.nba_id %>"><%= item.video.getViewCounts() %></span> 觀看</span><span class="game-date"><%= item.video.gameDate() %></span></p>
+      <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= item.video.nba_id %>"><%= item.video.getViewCounts() %></span> 瀏覽</span><span class="game-date"><%= item.video.gameDate() %></span></p>
     </div>
   </div>
   <% }) %>
