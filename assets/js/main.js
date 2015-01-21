@@ -45,7 +45,6 @@
       if (!is_ajax && ($(window).scrollTop() + $(window).height() > $(document).height() - 100)) {
         is_ajax = true;
         $.get(url, {limit: limit, page: page, ajax: true}, function(data) {
-          console.log(data);
           $('#video_list').append(data);
           page += 1;
           is_ajax = false;
@@ -68,7 +67,6 @@
   io.socket.on('view_counts', function(msg) {
     $('[data-module="view_counts"][data-nba-id="' + msg.nba_id + '"]').text(addCommas(msg.view_counts + 1));
   }).on('online_user_counts', function(msg) {
-    console.log(msg);
     $('.online_user_counts').text(addCommas(msg.online_user_counts));
   });
 
