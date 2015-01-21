@@ -105,7 +105,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         from: (page - 1) * limit,
         size: limit,
         sort:"date:desc",
-        q: encodeURIComponent(q)
+        q: q
       };
 
     ElasticSearchClient.search(options, function (err, response, status) {
