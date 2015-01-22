@@ -5,10 +5,7 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var transformation = require('../services/utils/transformations'),
-  format = require('../services/utils/format'),
-  Promise = require('bluebird'),
-  numbers = require('../services/utils/numbers');
+var Promise = require('bluebird');
 
 module.exports = {
   index: function (req, res) {
@@ -26,12 +23,12 @@ module.exports = {
       ajax = _.contains(req.path, 'ajax'),
       top_plays = _.contains(req.path, 'top_plays');
 
-    if (tag === '') {
+    if (Utility.format.isEmpty(tag)) {
       return res.redirect('/');
     }
 
     Tag.videos(req.allParams(), function (data) {
-      data = _.merge({title: transformation.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
+      data = _.merge({title: Utility.transformations.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
       if (data.total_counts === 0) {
@@ -45,9 +42,9 @@ module.exports = {
   show: function (req, res) {
     var nba_id = req.param('nba_id') || '',
       type = req.param('type') || '',
-      tag = req.param('tag') || transformation.getStringTag(nba_id);
+      tag = req.param('tag') || Utility.transformations.getStringTag(nba_id);
 
-    if (format.isEmpty(nba_id) || format.isEmpty(type)) {
+    if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(type)) {
       return res.redirect('/');
     }
 
@@ -85,7 +82,7 @@ module.exports = {
     var q = req.param('q') || '',
       ajax = req.param('ajax') || false;
 
-    if (format.isEmpty(q)) {
+    if (Utility.format.isEmpty(q)) {
       return res.redirect('/');
     }
 
@@ -103,7 +100,7 @@ module.exports = {
       data = {
         q: q,
         title: '搜尋關鍵字: ' + q,
-        total_counts: numbers.addCommas(total_counts),
+        total_counts: Utility.numbers.addCommas(total_counts),
         videos: videos
       };
 

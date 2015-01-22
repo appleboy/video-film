@@ -8,7 +8,6 @@
 var BaseModel = require('../services/BaseModel'),
   Promise = require('bluebird'),
   moment = require('moment'),
-  numbers = require('../services/utils/numbers'),
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
     host: 'localhost:9200',
@@ -61,7 +60,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       defaultsTo: 0
     },
     getViewCounts: function() {
-      return numbers.addCommas(this.view_counts);
+      return Utility.numbers.addCommas(this.view_counts);
     },
     tinyurl: 'string',
     url: 'string',
