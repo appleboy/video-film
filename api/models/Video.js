@@ -7,7 +7,6 @@
 
 var BaseModel = require('../services/BaseModel'),
   Promise = require('bluebird'),
-  moment = require('moment'),
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
     host: 'localhost:9200',
@@ -32,7 +31,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       columnName: 'date'
     },
     gameDate: function () {
-      return moment(this.date).format('YYYY-MM-DD');
+      return Utility.moment(this.date).format('YYYY-MM-DD');
     },
     src: {
       type: 'string',
@@ -103,7 +102,6 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         index: 'video-film',
         from: (page - 1) * limit,
         size: limit,
-        sort:"date:desc",
         q: q
       };
 

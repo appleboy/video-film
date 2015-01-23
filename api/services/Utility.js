@@ -3,4 +3,9 @@
 *
 */
 
-module.exports = require('./utils');
+var utils = require('./utils'),
+  moment = require('moment');
+
+module.exports = _.assign({
+  moment: moment
+}, utils);
