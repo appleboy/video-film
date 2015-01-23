@@ -6,6 +6,7 @@
 */
 
 var BaseModel = require('../services/BaseModel'),
+  microtime = require('microtime'),
   Promise = require('bluebird'),
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
@@ -105,11 +106,16 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         q: q
       };
 
+    var now = microtime.now();
     ElasticSearchClient.search(options, function (err, response, status) {
+      var end = microtime.now();
+      var response_time = end - now;
 
       if (err) {
         return;
       }
+
+      response['response_time'] = response_time;
 
       callback(response);
     });

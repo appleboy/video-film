@@ -101,6 +101,7 @@ module.exports = {
         q: q,
         title: '搜尋關鍵字: ' + q,
         total_counts: Utility.numbers.addCommas(total_counts),
+        response_time: (data.response_time || 0)/1000000,
         videos: videos
       };
 

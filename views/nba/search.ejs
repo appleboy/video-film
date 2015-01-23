@@ -1,7 +1,7 @@
 <div class="page-header">
   <h2><%= title %></h2>
 </div>
-<p>約有 <%= total_counts %> 項結果</p>
+<p>約有 <%= total_counts %> 項結果 (搜尋時間：<%= response_time %> 秒)</p>
 <div class="row" id="video_list">
   <%- partial('../partials/video.ejs') %>
   <p data-module="loading" data-url="/search?q=<%= encodeURI(q) %>" data-limit="30" data-page="2"></p>
