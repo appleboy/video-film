@@ -28,7 +28,7 @@ module.exports = {
     }
 
     Tag.videos(req.allParams(), function (data) {
-      data = _.merge({title: Utility.transformations.ReplaceTag(tag), tag: tag, top_plays: top_plays}, data);
+      data = _.merge({title: Utility.tag.getValue(tag), tag: tag, top_plays: top_plays}, data);
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
       if (data.total_counts === 0) {
@@ -42,7 +42,7 @@ module.exports = {
   show: function (req, res) {
     var nba_id = req.param('nba_id') || '',
       type = req.param('type') || '',
-      tag = req.param('tag') || Utility.transformations.getStringTag(nba_id);
+      tag = req.param('tag') || Utility.tag.getID(nba_id);
 
     if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(type)) {
       return res.redirect('/');

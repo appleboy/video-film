@@ -4,6 +4,11 @@
 %>
 <div class="col-md-2 video">
   <div class="thumbnail">
+    <% if (video.Tag()) { %>
+    <div class="ribbon">
+      <a href="#"><%= video.Tag() %></a>
+    </div>
+    <% } %>
     <a class="images" href="<%= video.nba_id %>" style="background-image: url('<%= video.thumbnail %>')">
       <span class="duration"><%= video.duration %></span>
     </a>

@@ -62,6 +62,9 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     getViewCounts: function() {
       return Utility.numbers.addCommas(this.view_counts);
     },
+    Tag: function() {
+      return Utility.tag.getTR(this.nba_id);
+    },
     tinyurl: 'string',
     url: 'string',
     share_url: 'string',
@@ -99,12 +102,17 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     var limit = +param.limit || this.limit,
       page = +param.page || this.page,
       q = param.q || '',
+      sort = param.sort || '',
       options = {
         index: 'video-film',
         from: (page - 1) * limit,
         size: limit,
         q: q
       };
+
+    if (!Utility.format.isEmpty(sort)) {
+      options = _.merge({sort: 'id:desc'}, options);
+    }
 
     var now = microtime.now();
     ElasticSearchClient.search(options, function (err, response, status) {
