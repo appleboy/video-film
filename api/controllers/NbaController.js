@@ -50,7 +50,7 @@ module.exports = {
 
     var relatedPromise = Video.search({
         limit: 15,
-        q: nba_id.replace(/-_\//ig, ' ').trim(),
+        q: nba_id,
         promise: true
       }),
       findPromise = Video.findOne()

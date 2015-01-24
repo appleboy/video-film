@@ -108,7 +108,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         index: 'video-film',
         from: (page - 1) * limit,
         size: limit,
-        q: q.replace(/-_\//ig, ' ').trim()
+        q: q.replace(/[-_\/]/ig, ' ').trim()
       };
 
     if (!Utility.format.isEmpty(sort)) {
