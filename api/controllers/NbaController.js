@@ -11,7 +11,7 @@ module.exports = {
   index: function (req, res) {
     var ajax = _.contains(req.path, 'ajax');
 
-    Tag.videos(req, function (data) {
+    Video.latest(req.allParams(), function (data) {
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
       return res.view('nba/index', data);

@@ -9,8 +9,8 @@
       <span><%= video.Tag() %></span>
     </div>
     <% } %>
-    <a class="images" href="<%= video.nba_id %>" style="background-image: url('<%= video.thumbnail %>')">
-      <span class="duration"><%= video.duration %></span>
+    <a class="images" href="<%= video.nba_id %>" style="background-image: url('<%= video.thumbnail ? video.thumbnail : "http://placekitten.com/g/155/110" %>')">
+      <span class="duration"><%= video.duration ? video.duration : '' %></span>
     </a>
     <div class="caption">
       <h3 class="title"><%= video.title %></h3>

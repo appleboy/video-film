@@ -82,9 +82,9 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
   },
 
   // get latest records
-  latest: function(req, callback) {
-    var limit = +req.param('limit') || this.limit,
-      page = +req.param('page') || this.page,
+  latest: function(param, callback) {
+    var limit = +param.limit || this.limit,
+      page = +param.page || this.page,
       countPromise = this.count(),
       findPromise = this.find()
         .paginate({page: page, limit: limit})
