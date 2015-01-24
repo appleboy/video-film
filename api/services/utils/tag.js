@@ -20,9 +20,9 @@ var util = require('./helpers'),
     'fool': '烏龍好球'
   },
   tag_rexp = {
-    'play_week': /(plays-of-the-week|plays-week|potw|dotw)\.nba/,
+    'play_week': /(plays?-of-the-week|plays-week|dpow|aotw|potw|dotw|top-defens(e|ive)|top-finals?-play)/,
     'top10': /top-?(10|5)/,
-    'zap': /(daily-)?zap\.nba/,
+    'zap': /(daily-)?zap/,
     'dunk': /dunk/,
     'steal': /steal/,
     'nightly': /nightly/,
