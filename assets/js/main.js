@@ -36,7 +36,7 @@
   });
 
   if (loading) {
-    var url = $('[data-module=loading]').data('url') || '',
+    var url = $('[data-module=loading]').data('url') || document.location.toString().toLowerCase(),
       limit = +$('[data-module=loading]').data('limit') || 30,
       page = +$('[data-module=loading]').data('page') || 1,
       is_ajax = false;
