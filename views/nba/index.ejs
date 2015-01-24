@@ -3,10 +3,27 @@
   <p>這裡提供 NBA 官方影片，有懶人包下載，大螢幕，及線上看。</p>
   <p><a href="/top_plays/top10" class="btn btn-primary btn-lg" role="button"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每日十大好球</a>&nbsp;<a href="/top_plays/play_week" class="btn btn-primary btn-lg" role="button"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周十大好球</a>&nbsp;<a href="/search?q=Shaqtin+A+Fool" class="btn btn-primary btn-lg" role="button"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周烏龍好球</a></p>
 </div>
+
 <div class="page-header">
-  <h2>最新影片</h2>
+  <h2>最新精彩好球</h2>
 </div>
 
 <div class="row" id="video_list">
-  <%- partial('../partials/video.ejs') %>
+  <%- partial('../partials/video.ejs', {videos: top_videos}) %>
+</div>
+
+<div class="page-header">
+  <h2>最新精彩賽事</h2>
+</div>
+
+<div class="row" id="video_list">
+  <%- partial('../partials/video.ejs', {videos: recap_videos}) %>
+</div>
+
+<div class="page-header">
+  <h2>最新影音</h2>
+</div>
+
+<div class="row" id="video_list">
+  <%- partial('../partials/video.ejs', {videos: latest_videos}) %>
 </div>
