@@ -103,6 +103,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       page = +param.page || this.page,
       q = param.q || '',
       sort = param.sort || '',
+      promise = param.promise || false,
       options = {
         index: 'video-film',
         from: (page - 1) * limit,
@@ -111,7 +112,11 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       };
 
     if (!Utility.format.isEmpty(sort)) {
-      options = _.merge({sort: 'id:desc'}, options);
+      options = _.merge({sort: 'date:desc'}, options);
+    }
+
+    if (promise) {
+      return ElasticSearchClient.search(options);
     }
 
     var now = microtime.now();

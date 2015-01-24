@@ -48,7 +48,11 @@ module.exports = {
       return res.redirect('/');
     }
 
-    var relatedPromise = Tag.videos({limit: 10, tag: tag, promise: true}),
+    var relatedPromise = Video.search({
+        limit: 15,
+        q: nba_id.replace('/', ' ').replace('-', ' ').trim(),
+        promise: true
+      }),
       findPromise = Video.findOne()
         .where({nba_id: nba_id});
 
@@ -57,14 +61,30 @@ module.exports = {
       video: findPromise
     }).then(function(result) {
 
+      var total_counts = result.related.hits.total,
+        rows = result.related.hits.hits,
+        videos = [];
+
       // check video exist
       if (typeof result.video === 'undefined') {
         return res.redirect('/');
       }
 
+      _(rows).forEach(function(row) {
+        var item = new Video._model(row._source);
+
+        // ignore current video.
+        if (item.nba_id === nba_id) {
+          return;
+        }
+
+        videos.push(item);
+      });
+
       // set title and description
       result.title = result.video.title;
       result.description = result.video.description;
+      result.videos = videos;
 
       // update view count
       Video.increase('view_counts', result.video.id);

@@ -41,14 +41,22 @@
   </div>
 </div>
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-  <% _.each(related.videos, function (item) { %>
+  <%
+    _.each(videos, function (item) {
+      var video = (item.video) ? item.video : item;
+  %>
   <div class="col-sm-12">
     <div class="thumbnail">
-      <a class="images" href="<%= item.video.nba_id %>" style="background-image: url('<%= item.video.thumbnail %>')">
-        <span class="duration"><%= item.video.duration %></span>
+      <% if (video.Tag()) { %>
+      <div class="ribbon">
+        <span><%= video.Tag() %></span>
+      </div>
+      <% } %>
+      <a class="images" href="<%= video.nba_id %>" style="background-image: url('<%= video.thumbnail %>')">
+        <span class="duration"><%= video.duration %></span>
       </a>
-      <p style="margin: 5px 0px;"><%= item.video.title %></p>
-      <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= item.video.nba_id %>"><%= item.video.getViewCounts() %></span> 瀏覽</span><span class="game-date"><%= item.video.gameDate() %></span></p>
+      <p style="margin: 5px 0px;"><%= video.title %></p>
+      <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= video.nba_id %>"><%= video.getViewCounts() %></span> 瀏覽</span><span class="game-date"><%= video.gameDate() %></span></p>
     </div>
   </div>
   <% }) %>
