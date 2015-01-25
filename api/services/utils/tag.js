@@ -8,6 +8,7 @@
 var util = require('./helpers'),
   hop = util.object.hasOwnProperty,
   tag_string = {
+    'top_plays': '精彩好球',
     'play_week': '每週十大',
     'top10': '十大好球',
     'playday': '每日好球',

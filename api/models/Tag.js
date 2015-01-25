@@ -11,7 +11,7 @@ var BaseModel = require('../services/BaseModel'),
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'video_tag',
   attributes: {
-    date : { type: 'date' },
+    date : { type: 'string' },
     name : { type: 'string' },
     video : {
       columnName: 'video_id',

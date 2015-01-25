@@ -1,12 +1,17 @@
 <%
   _.each(videos, function (item) {
     var video = (item.video) ? item.video : item;
+
+    // check video exist
+    if (!video.nba_id) {
+      return;
+    }
 %>
 <div class="col-md-2 video">
   <div class="thumbnail">
-    <% if (video.Tag()) { %>
+    <% if (video.getTag()) { %>
     <div class="ribbon">
-      <span><%= video.Tag() %></span>
+      <span><%= video.getTag() %></span>
     </div>
     <% } %>
     <a class="images" href="<%= video.nba_id %>" style="background-image: url('<%= video.thumbnail ? video.thumbnail : "http://placekitten.com/g/155/110" %>')">

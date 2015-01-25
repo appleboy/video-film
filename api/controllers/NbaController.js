@@ -19,16 +19,16 @@ module.exports = {
   },
 
   list: function (req, res) {
-    var tag = req.param('tag') || '';
-      ajax = _.contains(req.path, 'ajax'),
-      top_plays = _.contains(req.path, 'top_plays');
+    var tag = req.param('tag') || '',
+      ajax = req.param('ajax') || false,
+      channel = _.contains(req.path, 'channel');
 
     if (Utility.format.isEmpty(tag)) {
       return res.redirect('/');
     }
 
     Tag.videos(req.allParams(), function (data) {
-      data = _.merge({title: Utility.tag.getValue(tag), tag: tag, top_plays: top_plays}, data);
+      data = _.merge({title: Utility.tag.getValue(tag), tag: tag, channel: channel}, data);
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
       if (data.total_counts === 0) {

@@ -29,7 +29,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       size: 16
     },
     date: {
-      type: 'date',
+      type: 'string',
       columnName: 'date'
     },
     gameDate: function () {
@@ -66,7 +66,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     getSrcExtName: function() {
       return path.extname(this.src).substring(1);
     },
-    Tag: function() {
+    getTag: function() {
       return Utility.tag.getTR(this.nba_id);
     },
     tinyurl: 'string',
