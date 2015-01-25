@@ -94,7 +94,7 @@ module.exports = {
         view_counts: +result.video.view_counts
       }, req.socket);
 
-      res.view('nba/show', result);
+      return res.view('nba/show', result);
     });
   },
 
