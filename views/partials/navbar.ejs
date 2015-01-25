@@ -15,16 +15,29 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle <%= (typeof top_plays != 'undefined' && top_plays) ? 'active' : '' %>" data-toggle="dropdown" role="button" aria-expanded="false">精彩好球&nbsp;<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-header">單日精華</li>
+            <li class="divider"></li>
             <li><a href="/search?q=*recap*&sort=1"><span class="fa fa-futbol-o" aria-hidden="true"></span> 賽事精華</a></li>
             <li><a href="/top_plays/top10"><span class="fa fa-futbol-o" aria-hidden="true"></span> 十大好球</a></li>
             <li><a href="/search?q=Shaqtin+Fool&sort=1"><span class="fa fa-futbol-o" aria-hidden="true"></span> 烏龍好球</a></li>
-            <li><a href="/top_plays/play_week"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周十大</a></li>
             <li><a href="/top_plays/zap"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每日好球</a></li>
             <li><a href="/top_plays/dunk"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每日灌籃</a></li>
             <li><a href="/top_plays/steal"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每日抄球</a></li>
             <li><a href="/top_plays/nightly"><span class="fa fa-futbol-o" aria-hidden="true"></span> 晚間精華</a></li>
             <li><a href="/top_plays/block"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每日火鍋</a></li>
             <li><a href="/top_plays/assist"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每日助攻</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">單週精華</li>
+            <li class="divider"></li>
+            <li><a href="/top_plays/play_week"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周十大</a></li>
+            <li><a href="/top_plays/dunk_week"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周灌籃</a></li>
+            <li><a href="/top_plays/assist_week"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周抄球</a></li>
+            <li><a href="/top_plays/defensive_week"><span class="fa fa-futbol-o" aria-hidden="true"></span> 每周防守</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">單季精華</li>
+            <li class="divider"></li>
+            <li><a href="/top_plays/plays_month"><span class="fa fa-futbol-o" aria-hidden="true"></span> 單月十大</a></li>
+            <li><a href="/top_plays/play_season"><span class="fa fa-futbol-o" aria-hidden="true"></span> 單季十大</a></li>
           </ul>
         </li>
         <li class="dropdown">

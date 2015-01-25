@@ -18,10 +18,15 @@ var util = require('./helpers'),
     'block': '每日火鍋',
     'assist': '每日助攻',
     'recap': '賽事精華',
-    'fool': '烏龍好球'
+    'fool': '烏龍好球',
+    'dunk_week': '每周灌籃',
+    'assist_week': '每周抄球',
+    'defensive_week': '每周防守',
+    'plays_month': '單月十大',
+    'play_season': '單季十大'
   },
   tag_rexp = {
-    'play_week': /(plays?-of-the-week|plays-week|dpow|aotw|potw|dotw|top-defens(e|ive)|top-finals?-play)/i,
+    'play_week': /assists?-(of-the-)?week|dunks-week|(plays?-(of-the-)?week|dpow|aotw|potw|dotw|(top-)?defens(e|ive)(-week)?|top-finals?-play)/i,
     'top10': /top-?(10|5)/i,
     'playday': /play-of-the-day/i,
     'zap': /(daily-)?zap/i,

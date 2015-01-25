@@ -92,7 +92,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .limit(12)
         .sort('id desc');
       LatestPromise = this.find()
-        .limit(30)
+        .limit(36)
         .sort('id desc');
 
     Promise.props({

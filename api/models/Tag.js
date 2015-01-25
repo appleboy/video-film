@@ -38,7 +38,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       findPromise = this.find(where)
         .populate('video')
         .paginate({page: page, limit: limit})
-        .sort('id desc');
+        .sort('date desc');
 
     if (promise) {
       return Promise.props({
