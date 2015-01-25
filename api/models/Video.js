@@ -8,6 +8,7 @@
 var BaseModel = require('../services/BaseModel'),
   microtime = require('microtime'),
   Promise = require('bluebird'),
+  path = require('path'),
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
     host: 'localhost:9200',
@@ -61,6 +62,9 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     },
     getViewCounts: function() {
       return Utility.numbers.addCommas(this.view_counts);
+    },
+    getSrcExtName: function() {
+      return path.extname(this.src).substring(1);
     },
     Tag: function() {
       return Utility.tag.getTR(this.nba_id);
