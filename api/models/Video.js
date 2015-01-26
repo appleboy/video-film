@@ -69,6 +69,9 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     getTag: function() {
       return Utility.tag.getTR(this.nba_id);
     },
+    getTitleTR: function() {
+      return Utility.tag.getConvert(this.title);
+    },
     tinyurl: 'string',
     url: 'string',
     share_url: 'string',

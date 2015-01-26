@@ -71,6 +71,57 @@ module.exports = {
       'steal', 'nightly', 'block', 'assist'];
 
     return tags[_.random(tags.length)];
+  },
+
+  getConvert: function(str) {
+    str = str === null ? '' : String(str);
+
+    if (str === '') {
+      return str;
+    }
+
+    return str.replace(/Magic/ig, '魔術')
+      .replace(/Lakers/ig, '湖人')
+      .replace(/Bucks/ig, '公鹿')
+      .replace(/Hornets/ig, '黃蜂')
+      .replace(/Pistons/ig, '活塞')
+      .replace(/(Brooklyn )?Nets/ig, '籃網')
+      .replace(/Celtics|Celtic/ig, '塞爾蒂克')
+      .replace(/Cleveland|Cavaliers|Cavs/ig, '騎士')
+      .replace(/Heat/ig, '熱火')
+      .replace(/Sixers|76ers/ig, '76人')
+      .replace(/(Nueva York|Knicks)/ig, '尼克')
+      .replace(/Raptors/ig, '暴龍')
+      .replace(/Jazz?/ig, '爵士')
+      .replace(/Nuggets/ig, '金塊')
+      .replace(/Kings/ig, '國王')
+      .replace(/Timberwolves/ig, '灰狼')
+      .replace(/Thunder/ig, '雷霆')
+      .replace(/Hawks/ig, '老鷹')
+      .replace(/Grizzli?es/ig, '灰熊')
+      .replace(/Pacers/ig, '溜馬')
+      .replace(/Spurs/ig, '馬刺')
+      .replace(/Mavericks?|Mavs/ig, '小牛')
+      .replace(/Bobcats/ig, '山貓')
+      .replace(/(Los Bulls|Bulls)/ig, '公牛')
+      .replace(/(Trail )?Blazers/ig, '拓荒者')
+      .replace(/Clippers/ig, '快艇')
+      .replace(/Suns?(?!day)/ig, '太陽')
+      .replace(/Rockets/ig, '火箭')
+      .replace(/Wizards?|Wizzards/ig, '巫師')
+      .replace(/Warriors/ig, '勇士')
+      .replace(/Sky/ig, '天空')
+      .replace(/Storm/ig, '風暴')
+      .replace(/Liberty/ig, '自由人')
+      .replace(/Lynx/ig, '山貓')
+      .replace(/Mercury/ig, '水星')
+      .replace(/Shock/ig, '震動')
+      .replace(/Sparks/ig, '火花')
+      .replace(/Dream/ig, '美夢')
+      .replace(/Mystics/ig, '神秘')
+      .replace(/Silver Stars/ig, '銀星')
+      .replace(/Fever/ig, '狂熱')
+      .replace(/Pelicans|NOP/ig, '鵜鶘');
   }
 };
 
