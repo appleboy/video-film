@@ -8,13 +8,15 @@
  * For usage docs see:
  * 		https://github.com/gruntjs/grunt-contrib-cssmin
  */
+
+var uuid = require('./uuid');
+
 module.exports = function(grunt) {
 
-  var filename = grunt.file.readJSON('package.json').version + '.' + grunt.template.today('yyyymmdd');
 	grunt.config.set('cssmin', {
 		dist: {
 			src: ['.tmp/public/concat/production.css'],
-			dest: '.tmp/public/min/production.' + filename + '.css'
+			dest: '.tmp/public/min/production.' + uuid() + '.css'
 		}
 	});
 

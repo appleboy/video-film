@@ -9,13 +9,15 @@
  * 		https://github.com/gruntjs/grunt-contrib-uglify
  *
  */
+
+var uuid = require('./uuid');
+
 module.exports = function(grunt) {
 
-  var filename = grunt.file.readJSON('package.json').version + '.' + grunt.template.today('yyyymmdd');
 	grunt.config.set('uglify', {
 		dist: {
 			src: ['.tmp/public/concat/production.js'],
-			dest: '.tmp/public/min/production.' + filename + '.js'
+			dest: '.tmp/public/min/production.' + uuid() + '.js'
 		}
 	});
 

@@ -11,9 +11,10 @@
  * 		https://github.com/Zolmeister/grunt-sails-linker
  *
  */
-module.exports = function(grunt) {
 
-  var filename = grunt.file.readJSON('package.json').version + '.' + grunt.template.today('yyyymmdd');
+var uuid = require('./uuid');
+
+module.exports = function(grunt) {
 
 	grunt.config.set('sails-linker', {
 		devJs: {
@@ -53,9 +54,9 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/min/production.' + filename + '.js'],
-				'views/**/*.html': ['.tmp/public/min/production.' + filename + '.js'],
-				'views/**/*.ejs': ['.tmp/public/min/production.' + filename + '.js']
+				'.tmp/public/**/*.html': ['.tmp/public/min/production.' + uuid() + '.js'],
+				'views/**/*.html': ['.tmp/public/min/production.' + uuid() + '.js'],
+				'views/**/*.ejs': ['.tmp/public/min/production.' + uuid() + '.js']
 			}
 		},
 
@@ -68,9 +69,9 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/min/production.' + filename + '.js'],
-				'views/**/*.html': ['.tmp/public/min/production.' + filename + '.js'],
-				'views/**/*.ejs': ['.tmp/public/min/production.' + filename + '.js']
+				'.tmp/public/**/*.html': ['.tmp/public/min/production.' + uuid() + '.js'],
+				'views/**/*.html': ['.tmp/public/min/production.' + uuid() + '.js'],
+				'views/**/*.ejs': ['.tmp/public/min/production.' + uuid() + '.js']
 			}
 		},
 
@@ -113,9 +114,9 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/index.html': ['.tmp/public/min/production.' + filename + '.css'],
-				'views/**/*.html': ['.tmp/public/min/production.' + filename + '.css'],
-				'views/**/*.ejs': ['.tmp/public/min/production.' + filename + '.css']
+				'.tmp/public/index.html': ['.tmp/public/min/production.' + uuid() + '.css'],
+				'views/**/*.html': ['.tmp/public/min/production.' + uuid() + '.css'],
+				'views/**/*.ejs': ['.tmp/public/min/production.' + uuid() + '.css']
 			}
 		},
 
@@ -128,9 +129,9 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'.tmp/public/index.html': ['.tmp/public/min/production.' + filename + '.css'],
-				'views/**/*.html': ['.tmp/public/min/production.' + filename + '.css'],
-				'views/**/*.ejs': ['.tmp/public/min/production.' + filename + '.css']
+				'.tmp/public/index.html': ['.tmp/public/min/production.' + uuid() + '.css'],
+				'views/**/*.html': ['.tmp/public/min/production.' + uuid() + '.css'],
+				'views/**/*.ejs': ['.tmp/public/min/production.' + uuid() + '.css']
 			}
 		},
 
@@ -182,7 +183,7 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/**/*.jade': ['.tmp/public/min/production.' + filename + '.js']
+				'views/**/*.jade': ['.tmp/public/min/production.' + uuid() + '.js']
 			}
 		},
 
@@ -195,7 +196,7 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'views/**/*.jade': ['.tmp/public/min/production.' + filename + '.js']
+				'views/**/*.jade': ['.tmp/public/min/production.' + uuid() + '.js']
 			}
 		},
 
@@ -234,7 +235,7 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/**/*.jade': ['.tmp/public/min/production.' + filename + '.css']
+				'views/**/*.jade': ['.tmp/public/min/production.' + uuid() + '.css']
 			}
 		},
 
@@ -247,7 +248,7 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'views/**/*.jade': ['.tmp/public/min/production.' + filename + '.css']
+				'views/**/*.jade': ['.tmp/public/min/production.' + uuid() + '.css']
 			}
 		},
 
