@@ -1,5 +1,5 @@
 
-videojs.options.flash.swf = "/assets/video-js.swf";
+videojs.options.flash.swf = "/swf/video-js.swf";
 
 (function(w, d) {
   var $g = $('#gotop');
