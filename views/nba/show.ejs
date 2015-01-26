@@ -5,7 +5,18 @@
       <source src="<%= video.src %>" type='video/<%= video.getSrcExtName() %>' />
     </video>
     <div class="col-md-12">
-      <h2><%= video.title %></h2>
+      <p class="google-adsense">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- video film 影片下方廣告 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-8029787021384054"
+             data-ad-slot="9279099010"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </p>
+      <h2><%= video.getTitleTR() %></h2>
       <p><span class="label label-default"><%= video.gameDate() %></span>&nbsp;<%= video.description %></p>
       <p class="control-bar">
         <a class="btn btn-primary"><span class="fa fa-cloud-download" aria-hidden="true"></span> 影片下載</a>
@@ -60,7 +71,7 @@
       <a class="images" href="<%= video.nba_id %>" style="background-image: url('<%= video.thumbnail ? video.thumbnail : "http://placekitten.com/g/155/110" %>')">
         <span class="duration"><%= video.duration ? video.duration : '' %></span>
       </a>
-      <p style="margin: 5px 0px;"><%= video.title %></p>
+      <p style="margin: 5px 0px;"><%= video.getTitleTR() %></p>
       <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= video.nba_id %>"><%= video.getViewCounts() %></span> 瀏覽</span><span class="game-date"><%= video.gameDate() %></span></p>
     </div>
   </div>

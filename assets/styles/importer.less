@@ -49,8 +49,11 @@ body {
   width: auto;
 }
 
-.jumbotron {
-  text-align: center;
+.container {
+  .jumbotron {
+    text-align: center;
+    padding: 10px;
+  }
 }
 
 .thumbnail {
@@ -110,6 +113,10 @@ body {
 
 #video_container {
   background-color: #eee;
+  .google-adsense {
+    margin: 10px 0 0;
+    text-align: center;
+  }
 }
 
 .control-bar {
@@ -180,3 +187,17 @@ body {
   text-decoration: none;
 }
 
+.page-header {
+  position: relative;
+  .google-adsense {
+    position: absolute;
+    right: 0px;
+    top: -50px;
+  }
+}
+
+@media (max-width: 767px) {
+  #sidebar {
+    width: 100%;
+  }
+}

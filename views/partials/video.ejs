@@ -18,7 +18,7 @@
       <span class="duration"><%= video.duration ? video.duration : '' %></span>
     </a>
     <div class="caption">
-      <h3 class="title"><%= video.title %></h3>
+      <h3 class="title"><%= video.getTitleTR() %></h3>
       <p style="text-align:center"><a href="<%= video.src %>" target="_blank" class="btn btn-primary btn-sm" role="button"><span class="fa fa-cloud-download" aria-hidden="true"></span> 下載</a> <a href="<%= video.nba_id %>" class="btn btn-success btn-sm" role="button"><span class="fa fa-video-camera" aria-hidden="true"></span> 觀看</a></p>
       <p class="clearfix nba-info"><span class="view-count"><span data-module="view_counts" data-nba-id="<%= video.nba_id %>"><%= video.getViewCounts() %></span> 瀏覽</span><span class="game-date"><%= video.gameDate() %></span></p>
     </div>
