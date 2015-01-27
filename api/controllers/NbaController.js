@@ -82,7 +82,7 @@ module.exports = {
       });
 
       // set title and description
-      result.title = result.video.title;
+      result.title = result.video.getTitleTR();
       result.description = result.video.description;
       result.videos = videos;
 
