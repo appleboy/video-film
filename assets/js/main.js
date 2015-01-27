@@ -71,6 +71,9 @@ videojs.options.flash.swf = "/swf/video-js.swf";
     }
   });
 
+  // disabled socket io console.log
+  io.sails.environment = 'production';
+
   // socket io.js
   io.socket.on('view_counts', function(msg) {
     $('[data-module="view_counts"][data-nba-id="' + msg.nba_id + '"]').text(addCommas(msg.view_counts + 1));
