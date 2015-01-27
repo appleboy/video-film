@@ -100,7 +100,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .sort('date desc');
       LatestPromise = this.find()
         .limit(36)
-        .sort('date desc');
+        .sort('created_at desc');
 
     Promise.props({
       recap_videos: RecapPromise,
