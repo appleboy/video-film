@@ -93,11 +93,13 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
     var RecapPromise = this.find()
         .where({ nba_id: { contains: 'recap' }})
         .limit(18)
-        .sort('date desc');
+        .sort('date desc')
+        .sort('id desc');
       TopPlayPromise = this.find()
         .where({ nba_id: { contains: 'top_plays' }})
         .limit(12)
-        .sort('date desc');
+        .sort('date desc')
+        .sort('id desc');
       LatestPromise = this.find()
         .limit(36)
         .sort('created_at desc');
