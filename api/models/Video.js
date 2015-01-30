@@ -90,21 +90,27 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
 
   // get latest records
   latest: function(param, callback) {
-    var RecapPromise = this.find()
+    var AllStarPromise = this.find()
+        .where({ title: { contains: '2015 All-Star' }})
+        .limit(24)
+        .sort('date desc')
+        .sort('id desc'),
+      RecapPromise = this.find()
         .where({ nba_id: { contains: 'recap' }})
         .limit(18)
         .sort('date desc')
-        .sort('id desc');
+        .sort('id desc'),
       TopPlayPromise = this.find()
         .where({ nba_id: { contains: 'top_plays' }})
         .limit(12)
         .sort('date desc')
-        .sort('id desc');
+        .sort('id desc'),
       LatestPromise = this.find()
         .limit(36)
         .sort('created_at desc');
 
     Promise.props({
+      allstar_videos: AllStarPromise,
       recap_videos: RecapPromise,
       top_videos: TopPlayPromise,
       latest_videos: LatestPromise
