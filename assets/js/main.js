@@ -79,6 +79,8 @@ videojs.options.flash.swf = "/swf/video-js.swf";
     $('[data-module="view_counts"][data-nba-id="' + msg.nba_id + '"]').text(addCommas(msg.view_counts + 1));
   }).on('online_user_counts', function(msg) {
     $('.online_user_counts').text(addCommas(msg.online_user_counts));
+  }).on('online_videos', function(msg) {
+    console.log(msg);
   });
 
 })(window, document);
