@@ -152,6 +152,10 @@ module.exports = {
           return res.forbidden();
         }
 
+        if (typeof video === 'undefined') {
+          return res.redirect('/');
+        }
+
         var data = {
           nba_id: video.nba_id,
           title: video.getTitleTR(),

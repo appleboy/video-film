@@ -30,6 +30,7 @@ var jsFilesToInject = [
   'vendor/bootstrap/js/collapse.js',
   'vendor/bootstrap/js/dropdown.js',
   'vendor/video.js/dist/video-js/video.dev.js',
+  'vendor/noty/js/noty/packaged/jquery.noty.packaged.js',
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
 

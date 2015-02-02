@@ -46,7 +46,7 @@ module.exports.routes = {
     action: 'list'
   },
 
-  'GET /blast': 'NbaController.blast'
+  'POST /blast': 'NbaController.blast'
 
   /***************************************************************************
   *                                                                          *
