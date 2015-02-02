@@ -46,6 +46,8 @@ module.exports.routes = {
     action: 'list'
   },
 
+  'POST /blast': 'NbaController.blast'
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

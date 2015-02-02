@@ -129,6 +129,43 @@ module.exports = {
 
       return res.view(((ajax) ? 'partials/video' : 'nba/search'), data);;
     });
+  },
+
+  blast: function (req, res) {
+    var nba_id = req.param('nba_id') || '',
+      api_key = req.param('api_key') || '',
+      api_password = req.param('api_password') || '';
+
+    if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(api_key)
+        || Utility.format.isEmpty(api_password)) {
+      return res.forbidden();
+    }
+
+    if (api_key != process.env.API_KEY || api_password != process.env.API_PASSWORD) {
+      return res.forbidden();
+    }
+
+    Video.findOne()
+      .where({nba_id: nba_id})
+      .exec(function(err, video) {
+        if (err) {
+          return res.forbidden();
+        }
+
+        if (typeof video === 'undefined') {
+          return res.redirect('/');
+        }
+
+        var data = {
+          nba_id: video.nba_id,
+          title: video.getTitleTR(),
+          thumbnail: video.thumbnail
+        };
+
+        sails.sockets.blast('online_videos', data);
+
+        return res.json(data);
+      });
   }
 };
 

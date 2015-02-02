@@ -79,6 +79,13 @@ videojs.options.flash.swf = "/swf/video-js.swf";
     $('[data-module="view_counts"][data-nba-id="' + msg.nba_id + '"]').text(addCommas(msg.view_counts + 1));
   }).on('online_user_counts', function(msg) {
     $('.online_user_counts').text(addCommas(msg.online_user_counts));
+  }).on('online_videos', function(msg) {
+    noty({
+      layout: 'bottomLeft',
+      text: '今日比賽: <a href="' + msg.nba_id + '">' + msg.title + '</a> 已經上線',
+      type: 'warning',
+      maxVisible: 10
+    });
   });
 
 })(window, document);
