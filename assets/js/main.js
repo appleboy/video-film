@@ -37,6 +37,21 @@ videojs.options.flash.swf = "/swf/video-js.swf";
     }
   });
 
+  // bind check all checkbox event
+  $('[data-module=adsense]').on('click', function(e) {
+    e.preventDefault();
+
+    var url = $(this).data('url'),
+      title = $(this).data('title');
+
+    ga('send', 'pageview', {
+      'page': url,
+      'title': title
+    });
+
+    window.open(url, '_blank');
+  });
+
   if (loading) {
     var url = $('[data-module=loading]').data('url') || document.location.toString().toLowerCase(),
       limit = +$('[data-module=loading]').data('limit') || 30,
