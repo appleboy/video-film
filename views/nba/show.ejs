@@ -20,7 +20,7 @@
       <h2><%= video.getTitleTR() %></h2>
       <p><span class="label label-default"><%= video.gameDate() %></span>&nbsp;<%= video.description %></p>
       <p class="control-bar">
-        <a class="btn btn-primary" href="<%= video.src %>" target="_blank"><span class="fa fa-cloud-download" aria-hidden="true"></span> 影片下載</a>
+        <a class="btn btn-primary" href="<%= video.src %>" target="_blank" data-module="adsense" data-title="[下載] <%= video.getTitleTR() %>" data-url="<%= video.src %>"><span class="fa fa-cloud-download" aria-hidden="true"></span> 影片下載</a>
         <button id="fullscreen" type="button" class="btn btn-success"><span class="fa fa-video-camera" aria-hidden="true"></span> 線上大螢幕</button>
         <a class="btn btn-social btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<%= req.baseUrl + encodeURI(req.url) %>">
           <i class="fa fa-facebook"></i>
