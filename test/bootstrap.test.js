@@ -9,7 +9,6 @@ before(function (done) {
       level: 'error'
     },
     models: {
-      connection: 'testing',
       migrate: 'drop'
     }
   }, function(err, server) {
