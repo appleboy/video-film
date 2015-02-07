@@ -4,13 +4,13 @@
 */
 
 /**
-* _.str.capitalize
+* _.str.capitalizeFirst
 *
 * @param {String} str
 * @return {String}
 * @api public
 */
-exports.capitalize = function capitalize(str) {
+exports.capitalizeFirst = function capitalizeFirst(str) {
   str = str === null ? '' : String(str);
   return str.charAt(0).toUpperCase() + str.slice(1);
 };

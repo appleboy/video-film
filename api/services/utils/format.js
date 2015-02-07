@@ -8,7 +8,7 @@ module.exports = {
   isEmpty: function(str) {
     str = str === null ? '' : String(str).trim();
 
-    return /^(\s+)?$/i.test(str);
+    return /^$/i.test(str);
   },
 
   isNumber: function(str) {
