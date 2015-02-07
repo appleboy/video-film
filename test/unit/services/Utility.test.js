@@ -63,4 +63,36 @@ describe('Utility Tool', function() {
       done();
     });
   });
+
+  describe('tags', function() {
+    it('get tag string', function (done) {
+      Utility.tag.getValue('top_plays').should.equal('精彩好球');
+      Utility.tag.getValue('play_week').should.equal('每週十大');
+
+      done();
+    });
+
+    it('get ID string', function (done) {
+      Utility.tag.getID('/video/channels/top_plays/2015/02/06/20150206-top-10.nba').should.equal('top10');
+      Utility.tag.getID('/video/channels/top_plays/2015/02/06/20150206-daily-zap.nba').should.equal('zap');
+
+      done();
+    });
+
+    it('get ID Tag string', function (done) {
+      Utility.tag.getTR('/video/channels/top_plays/2015/02/06/20150206-top-10.nba').should.equal('十大好球');
+      Utility.tag.getTR('/video/channels/top_plays/2015/02/06/20150206-daily-zap.nba').should.equal('每日鬥士');
+
+      done();
+    });
+
+    it('get title convert string', function (done) {
+      Utility.tag.getConvert('Magic vs Celtics').should.equal('魔術 vs 塞爾蒂克');
+      Utility.tag.getConvert('Lakers vs Bucks').should.equal('湖人 vs 公鹿');
+      Utility.tag.getConvert('Knicks').should.equal('尼克');
+      Utility.tag.getConvert('Raptors').should.equal('暴龍');
+
+      done();
+    });
+  });
 });
