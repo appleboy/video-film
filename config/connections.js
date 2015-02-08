@@ -51,6 +51,14 @@ module.exports.connections = {
     database: process.env.MYSQL_DATABASE || 'sails'
   },
 
+  testing: {
+    adapter: 'sails-mysql',
+    host: process.env.MYSQL_HOST || 'localhost',
+    user: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_PASSWORD || '',
+    database: process.env.MYSQL_DATABASE || 'sails'
+  },
+
   /***************************************************************************
   *                                                                          *
   * MongoDB is the leading NoSQL database.                                   *
