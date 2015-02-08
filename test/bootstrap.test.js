@@ -7,9 +7,6 @@ before(function (done) {
   Sails.lift({
     log: {
       level: 'error'
-    },
-    models: {
-      migrate: 'drop'
     }
   }, function(err, server) {
     if (err) {
