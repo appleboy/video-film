@@ -5,9 +5,11 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+'use strict';
+
 var BaseModel = require('../services/BaseModel'),
   microtime = require('microtime'),
-  Promise = require('bluebird'),
+  BluePromise = require('bluebird'),
   path = require('path'),
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
@@ -109,7 +111,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .limit(36)
         .sort('created_at desc');
 
-    Promise.props({
+    BluePromise.props({
       allstar_videos: AllStarPromise,
       recap_videos: RecapPromise,
       top_videos: TopPlayPromise,
@@ -149,7 +151,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         return;
       }
 
-      response['response_time'] = response_time;
+      response.response_time = response_time;
 
       callback(response);
     });

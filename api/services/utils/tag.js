@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+'use strict';
+
 var util = require('./helpers'),
   hop = util.object.hasOwnProperty,
   tag_string = {
@@ -48,18 +50,19 @@ module.exports = {
     return hop(tag_string, str) ? str.replace(str, tag_string[str]) : '';
   },
 
-  getID: function (str, random) {
-    var tag,
-      random = random || false;
+  getID: function (str, isRandom) {
+    var tag;
+
+    isRandom = isRandom || false;
 
     _.forEach(tag_rexp, function(value, key) {
       if (value.test(str)) {
-        tag = key
+        tag = key;
         return false;
       }
     });
 
-    return tag ? tag : (random) ? this.getRandom() : '';
+    return tag ? tag : (isRandom) ? this.getRandom() : '';
   },
 
   getTR: function(str) {

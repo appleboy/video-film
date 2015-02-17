@@ -5,6 +5,8 @@
  * http://backbonejs.org/docs/backbone.html#section-189
  */
 
+'use strict';
+
 module.exports = function(protoProps, staticProps) {
   var parent = this;
   var child;
@@ -21,7 +23,9 @@ module.exports = function(protoProps, staticProps) {
   Surrogate.prototype = parent.prototype;
   child.prototype = new Surrogate();
 
-  if (protoProps) _.extend(child.prototype, protoProps);
+  if (protoProps) {
+    _.extend(child.prototype, protoProps);
+  }
 
   child.__super__ = parent.prototype;
 

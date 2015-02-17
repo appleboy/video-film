@@ -5,7 +5,9 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-var Promise = require('bluebird');
+'use strict';
+
+var BluePromise = require('bluebird');
 
 module.exports = {
   index: function (req, res) {
@@ -41,8 +43,7 @@ module.exports = {
 
   show: function (req, res) {
     var nba_id = req.param('nba_id') || '',
-      type = req.param('type') || '',
-      tag = req.param('tag') || Utility.tag.getID(nba_id);
+      type = req.param('type') || '';
 
     if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(type)) {
       return res.redirect('/');
@@ -56,13 +57,12 @@ module.exports = {
       findPromise = Video.findOne()
         .where({nba_id: nba_id});
 
-    Promise.props({
+    BluePromise.props({
       related: relatedPromise,
       video: findPromise
     }).then(function(result) {
 
-      var total_counts = result.related.hits.total,
-        rows = result.related.hits.hits,
+      var rows = result.related.hits.hits,
         videos = [];
 
       // check video exist
@@ -127,7 +127,7 @@ module.exports = {
 
       data = (ajax) ? _.merge(data, {layout: null}) : data;
 
-      return res.view(((ajax) ? 'partials/video' : 'nba/search'), data);;
+      return res.view(((ajax) ? 'partials/video' : 'nba/search'), data);
     });
   },
 
@@ -136,12 +136,11 @@ module.exports = {
       api_key = req.param('api_key') || '',
       api_password = req.param('api_password') || '';
 
-    if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(api_key)
-        || Utility.format.isEmpty(api_password)) {
+    if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(api_key) || Utility.format.isEmpty(api_password)) {
       return res.forbidden();
     }
 
-    if (api_key != process.env.API_KEY || api_password != process.env.API_PASSWORD) {
+    if (api_key !== process.env.API_KEY || api_password !== process.env.API_PASSWORD) {
       return res.forbidden();
     }
 

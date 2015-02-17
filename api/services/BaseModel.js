@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+'use strict';
+
 module.exports = {
   limit: 30,
   page: 1,
@@ -26,7 +28,7 @@ module.exports = {
   },
 
   _changeCount: function(column, key, str) {
-    this.query('update ' + this.tableName +' set ' + column + ' = ' + column + ' ' + str + ' 1 where id = "' + key + '"', function(err, results) {
+    this.query('update ' + this.tableName +' set ' + column + ' = ' + column + ' ' + str + ' 1 where id = "' + key + '"', function(err, res) {
       if (err) {
         return res.serverError(err);
       }

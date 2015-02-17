@@ -3,6 +3,8 @@
  *
  */
 
+'use strict';
+
 module.exports = {
 
   isEmpty: function(str) {

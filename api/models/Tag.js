@@ -5,8 +5,10 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+'use strict';
+
 var BaseModel = require('../services/BaseModel'),
-  Promise = require('bluebird');
+  BluePromise = require('bluebird');
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'video_tag',
@@ -42,12 +44,12 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .sort('id desc');
 
     if (promise) {
-      return Promise.props({
+      return BluePromise.props({
         total_counts: countPromise,
         videos: findPromise
       });
     } else {
-      Promise.props({
+      BluePromise.props({
         total_counts: countPromise,
         videos: findPromise
       }).then(function(result) {

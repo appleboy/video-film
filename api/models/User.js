@@ -5,6 +5,8 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
+'use strict';
+
 var BaseModel = require('../services/BaseModel');
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {

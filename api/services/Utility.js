@@ -3,6 +3,8 @@
 *
 */
 
+'use strict';
+
 var utils = require('./utils'),
   moment = require('moment');
 

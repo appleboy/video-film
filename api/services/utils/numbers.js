@@ -13,7 +13,7 @@ module.exports = {
   * @param {[type]} number [description]
   */
   addCommas: function (number) {
-    return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
   },
 
   /**
