@@ -7,6 +7,9 @@ node_js:
   - '0.10'
   - '0.12'
 
+before_script:
+  - mysql -e 'create database IF NOT EXISTS test;' -uroot
+
 script:
   - npm test
 
