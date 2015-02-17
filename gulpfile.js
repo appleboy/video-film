@@ -23,6 +23,8 @@ function mochaStream(){
   return gulp.src('test/**/*.js', {read: false})
     .pipe($.mocha({
       reporter: 'spec'
+    }).on('error', function (error) {
+      console.log('error caught');
     }));
 }
 
