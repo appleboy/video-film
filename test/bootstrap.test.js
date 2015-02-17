@@ -3,6 +3,7 @@ require('should');
 
 // Global before hook
 before(function (done) {
+  this.timeout(60000);
   // Lift Sails with test database
   Sails.lift({
     log: {
