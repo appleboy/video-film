@@ -92,12 +92,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
 
   // get latest records
   latest: function(param, callback) {
-    var AllStarPromise = this.find()
-        .where({ nba_id: { contains: 'allstar' }})
-        .limit(30)
-        .sort('date desc')
-        .sort('id desc'),
-      RecapPromise = this.find()
+    var RecapPromise = this.find()
         .where({ nba_id: { contains: 'recap' }})
         .limit(12)
         .sort('date desc')
@@ -112,7 +107,6 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         .sort('created_at desc');
 
     BluePromise.props({
-      allstar_videos: AllStarPromise,
       recap_videos: RecapPromise,
       top_videos: TopPlayPromise,
       latest_videos: LatestPromise
