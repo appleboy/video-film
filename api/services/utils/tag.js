@@ -43,6 +43,8 @@ var util = require('./helpers'),
   };
 
 module.exports = {
+  tags: ['top10', 'play_week', 'zap', 'dunk', 'steal', 'nightly', 'block', 'assist'],
+
   getValue: function(str) {
 
     str = str === null ? '' : String(str);
@@ -70,10 +72,7 @@ module.exports = {
   },
 
   getRandom: function () {
-    var tags = ['top10', 'play_week', 'zap', 'dunk',
-      'steal', 'nightly', 'block', 'assist'];
-
-    return tags[_.random(tags.length)];
+    return this.tags[_.random(this.tags.length)];
   },
 
   getConvert: function(str) {

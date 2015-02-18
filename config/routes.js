@@ -33,6 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': 'NbaController.index',
+  '/welcome': 'WelcomeController.index',
 
   'GET r|^(/video/(\\w+)/([\\w_-]+)/\\d+/\\d+/\\d+/[\\w-\.]+)|nba_id,type,channel': {
     controller: 'Nba',

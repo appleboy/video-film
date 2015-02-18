@@ -94,5 +94,12 @@ describe('Utility Tool', function() {
 
       done();
     });
+
+    it('get Random Tag string', function (done) {
+      Utility.tag.tags.length.should.equal(8);
+
+      Utility.tag.tags.indexOf(Utility.tag.getRandom()).should.not.equal(-1);
+      done();
+    });
   });
 });
