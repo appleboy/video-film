@@ -39,5 +39,6 @@ exports.object.hasOwnProperty = function(obj, prop) {
   if (obj === null) {
     return false;
   }
+
   return hop.call(obj, prop);
 };

@@ -28,6 +28,18 @@ describe('Utility Tool', function() {
 
       done();
     });
+
+    it('object testing', function (done) {
+      var test = {
+        'foo': 'bar'
+      }, test2 = null;
+
+      Utility.helpers.object.should.be.an.instanceOf(Object);
+      Utility.helpers.object.hasOwnProperty(test, 'foo').should.be.ok;
+      Utility.helpers.object.hasOwnProperty(test, 'bar').should.not.be.ok;
+      Utility.helpers.object.hasOwnProperty(test2, 'foo').should.not.be.ok;
+      done();
+    });
   });
 
   describe('formats', function() {
