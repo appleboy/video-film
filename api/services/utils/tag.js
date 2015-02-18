@@ -79,7 +79,7 @@ module.exports = {
     str = str === null ? '' : String(str);
 
     if (str === '') {
-      return str;
+      return false;
     }
 
     return str.replace(/Magic/ig, '魔術')

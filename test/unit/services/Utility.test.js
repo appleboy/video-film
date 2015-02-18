@@ -103,6 +103,7 @@ describe('Utility Tool', function() {
       Utility.tag.getConvert('Lakers vs Bucks').should.equal('湖人 vs 公鹿');
       Utility.tag.getConvert('Knicks').should.equal('尼克');
       Utility.tag.getConvert('Raptors').should.equal('暴龍');
+      Utility.tag.getConvert('').should.not.be.ok;
 
       done();
     });
