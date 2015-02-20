@@ -27,6 +27,7 @@
     "Utility": false,
     "Video": false,
     "Tag": false,
+    "User": false,
     "sails": false,
     "fixtures": false
   }
