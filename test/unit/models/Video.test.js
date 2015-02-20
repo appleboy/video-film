@@ -6,4 +6,28 @@ describe('Videos', function() {
       done();
     });
   });
+
+  it ('test increae on base model', function(done) {
+    Video.increase('view_counts', 3);
+    Video.increase('view_counts', 1, function(res) {
+      //console.log(res);
+      Video.findOne(1)
+        .exec(function(err, video) {
+          video.view_counts.should.be.eql(11);
+          done();
+      });
+    });
+  });
+
+  it ('test decreae on base model', function(done) {
+    Video.decrease('view_counts', 4);
+    Video.decrease('view_counts', 2, function(res) {
+      //console.log(res);
+      Video.findOne(2)
+        .exec(function(err, video) {
+          video.view_counts.should.be.eql(19);
+          done();
+      });
+    });
+  });
 });

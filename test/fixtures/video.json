@@ -7,13 +7,11 @@
     "title": "Nuggets vs. Grizzlies",
     "thumbnail": "http://i2.cdn.turner.com/nba/nba/dam/assets/150129220500-20150129-zach-randolph-vs-den-nuggets.large-video-thumbnail.jpg",
     "description": "Zach Randolph leads with 15 points and 17 rebounds to power the Grizzlies in a rout of the Nuggets 99-69.",
-    "view_counts": 81,
+    "view_counts": 10,
     "tinyurl": "http://goo.gl/Hb3Yzg",
     "url": "http://goo.gl/umgvhB",
     "share_url": "http://goo.gl/xVUnFa",
     "comment": null,
-    "created_at": "2015-01-30 06:26:02",
-    "updated_at": "2015-01-30 06:26:54",
     "id": 1
   },
   {
@@ -24,13 +22,11 @@
     "title": "Knicks vs. Pacers",
     "thumbnail": "http://i2.cdn.turner.com/nba/nba/dam/assets/150129211638-20150129-stuckey.large-video-thumbnail.jpg",
     "description": "Rodney Stuckey scores 22 points and grabs 5 rebounds as the Pacers defeat the Knicks 103-82.",
-    "view_counts": 79,
+    "view_counts": 20,
     "tinyurl": "http://goo.gl/vwe7Bd",
     "url": "http://goo.gl/GHiIIW",
     "share_url": "http://goo.gl/4DdXDP",
     "comment": null,
-    "created_at": "2015-01-30 06:26:02",
-    "updated_at": "2015-01-30 06:26:54",
     "id": 2
 
   },
@@ -42,13 +38,11 @@
     "title": "Bucks vs. Magic",
     "thumbnail": "http://i2.cdn.turner.com/nba/nba/dam/assets/150129211537-20150129-knight.large-video-thumbnail.jpg",
     "description": "Brandon Knight finished with 16 points and 9 assists as the Bucks defeat the Magic 115-100.",
-    "view_counts": 54,
+    "view_counts": 30,
     "tinyurl": "http://goo.gl/SEZT8O",
     "url": "http://goo.gl/NC3Esn",
     "share_url": "http://goo.gl/Vv05L9",
     "comment": null,
-    "created_at": "2015-01-30 06:26:02",
-    "updated_at": "2015-01-30 06:26:54",
     "id": 3
   },
   {
@@ -59,13 +53,11 @@
     "title": "Trail Blazers vs. Cavaliers",
     "thumbnail": "http://i2.cdn.turner.com/nba/nba/dam/assets/150128221711-kyrie-irving-celebration-white-uni.large-video-thumbnail.jpg",
     "description": "Kyrie Irving scores a career-high 55 points and leads the Cavaliers to their eighth straight win, 99-94 over the Trail Blazers.",
-    "view_counts": 148,
+    "view_counts": 40,
     "tinyurl": "http://goo.gl/bsEmZK",
     "url": "http://goo.gl/FJh9rs",
     "share_url": "http://goo.gl/sngprq",
     "comment": null,
-    "created_at": "2015-01-29 23:24:55",
-    "updated_at": "2015-01-30 06:25:43",
     "id": 4
   },
   {
@@ -76,13 +68,11 @@
     "title": "Wizards vs. Suns",
     "thumbnail": "http://i2.cdn.turner.com/nba/nba/dam/assets/150129010645-dragic-vs-was-0128.large-video-thumbnail.jpg",
     "description": "Goran Dragic scores 20 points, Isaiah Thomas adds 18 points as the Suns defeat the Wizards.",
-    "view_counts": 302,
+    "view_counts": 50,
     "tinyurl": "http://goo.gl/5ERYNh",
     "url": "http://goo.gl/G9KLa7",
     "share_url": "http://goo.gl/vB4lFZ",
     "comment": null,
-    "created_at": "2015-01-30 06:26:02",
-    "updated_at": "2015-01-30 06:26:02",
     "id": 5
   }
 ]
