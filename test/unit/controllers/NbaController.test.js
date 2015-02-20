@@ -31,5 +31,11 @@ describe('NbaController', function() {
         .get('/channel/top10')
         .expect(200, done);
     });
+
+    it('get top10 tag of ajax data', function (done) {
+      request(sails.hooks.http.app)
+        .get('/channel/top10?ajax=1')
+        .expect(200, done);
+    });
   });
 });
