@@ -47,6 +47,7 @@
   "author": "appleboy",
   "license": "",
   "devDependencies": {
+    "barrels": "^1.4.0",
     "coveralls": "^2.11.2",
     "del": "^1.1.1",
     "gulp": "^3.8.11",

@@ -1,4 +1,5 @@
-var Sails = require('sails');
+var Sails = require('sails'),
+  Barrels = require('barrels');
 require('should');
 
 // Global before hook
@@ -18,7 +19,16 @@ before(function (done) {
       return done(err);
     }
 
-    done(err, server);
+    // Load fixtures
+    var barrels = new Barrels();
+
+    // Save original objects in `fixtures` variable
+    fixtures = barrels.data;
+
+    // Populate the DB
+    barrels.populate(function(err) {
+      done(err, server);
+    });
   });
 });
 
