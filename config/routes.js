@@ -42,7 +42,7 @@ module.exports.routes = {
 
   'GET /search': 'NbaController.search',
 
-  'GET r|^/channel/(\\w+)(/ajax)?$|tag': {
+  'GET r|^/channel/(\\w+)?(/ajax)?$|tag': {
     controller: 'Nba',
     action: 'list'
   },

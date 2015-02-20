@@ -8,4 +8,20 @@ describe('NbaController', function() {
         .expect(200, done);
     });
   });
+
+  describe('channel', function() {
+    it('empty tag name', function (done) {
+      request(sails.hooks.http.app)
+        .get('/channel/')
+        .expect(302)
+        .expect('location','/', done);
+    });
+
+    it('empty data of tag', function (done) {
+      request(sails.hooks.http.app)
+        .get('/channel/top_plays')
+        .expect(302)
+        .expect('location','/', done);
+    });
+  });
 });
