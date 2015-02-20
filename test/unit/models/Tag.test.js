@@ -1,9 +1,11 @@
+'use strict';
+
 var BluePromise = require('bluebird');
 
 describe('Tags', function() {
   it('should not be empty', function(done) {
     Tag.find().exec(function(err, rows) {
-      rows.length.should.be.eql(fixtures['tag'].length);
+      rows.length.should.be.eql(fixtures.tag.length);
 
       done();
     });

@@ -1,3 +1,5 @@
+/*jshint strict: false */
+
 var Sails = require('sails'),
   Barrels = require('barrels');
 require('should');
@@ -23,6 +25,7 @@ before(function (done) {
     var barrels = new Barrels();
 
     // Save original objects in `fixtures` variable
+    /*jshint -W020 */
     fixtures = barrels.data;
 
     // Populate the DB

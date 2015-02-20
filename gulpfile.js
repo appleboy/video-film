@@ -13,7 +13,9 @@ gulp.task('coverage', ['clean'], function(){
 });
 
 gulp.task('jshint', function () {
-  return gulp.src(lib)
+  var src = lib;
+  src.push('test/**/*.js');
+  return gulp.src(src)
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.jshint.reporter('fail'));

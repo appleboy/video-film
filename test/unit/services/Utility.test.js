@@ -1,3 +1,4 @@
+'use strict';
 
 describe('Utility Tool', function() {
   describe('numbers', function() {
