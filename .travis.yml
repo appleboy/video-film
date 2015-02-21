@@ -7,8 +7,12 @@ node_js:
   - '0.10'
   - '0.12'
 
+services:
+  - elasticsearch
+
 before_script:
   - mysql -e 'create database IF NOT EXISTS test;' -uroot
+  - node test/import.js
 
 script:
   - npm test
