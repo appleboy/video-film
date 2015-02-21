@@ -27,7 +27,7 @@ var addRow = function(row) {
   });
 };
 
-fs.readFile( __dirname + '/fixtures/video.json', 'utf8', function (err, data) {
+fs.readFile( __dirname + '/../test/fixtures/video.json', 'utf8', function (err, data) {
   if (err) {
     throw err;
   }
