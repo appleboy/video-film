@@ -38,14 +38,8 @@ module.exports = {
   },
 
   show: function (req, res) {
-    var nba_id = req.param('nba_id') || '',
-      type = req.param('type') || '';
-
-    if (Utility.format.isEmpty(nba_id) || Utility.format.isEmpty(type)) {
-      return res.redirect('/');
-    }
-
-    var relatedPromise = Video.search({
+    var nba_id = req.param('nba_id'),
+      relatedPromise = Video.search({
         limit: 15,
         q: nba_id,
         promise: true

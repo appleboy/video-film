@@ -13,6 +13,7 @@ services:
 before_script:
   - mysql -e 'create database IF NOT EXISTS test;' -uroot
   - node scripts/import.js
+  - cp .env.test .env
 
 script:
   - npm test
