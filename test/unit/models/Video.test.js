@@ -1,5 +1,7 @@
 'use strict';
 
+var BluePromise = require('bluebird');
+
 describe('Videos', function() {
   it ('should not be empty', function(done) {
     Video.find().exec(function(err, rows) {
@@ -38,4 +40,38 @@ describe('Videos', function() {
     });
   });
 
+  it ('test video search method', function(done) {
+    Video.search({
+      limit: 1,
+      q: 'recap'}, function(res) {
+      res.hits.hits.length.should.eql(1);
+      done();
+    });
+  });
+
+  it ('test video search sort', function(done) {
+    Video.search({
+      sort: true,
+      limit: 1,
+      q: 'recap'}, function(res) {
+      res.hits.hits.length.should.eql(1);
+      done();
+    });
+  });
+
+  it ('test video search promise', function(done) {
+    var Promise = Video.search({
+      promise: true,
+      sort: true,
+      limit: 1,
+      q: 'recap'
+    });
+
+    BluePromise.props({
+      videos: Promise
+    }).then(function(result) {
+      result.videos.hits.hits.length.should.eql(1);
+      done();
+    });
+  });
 });

@@ -14,7 +14,7 @@ gulp.task('coverage', ['clean'], function(){
 
 gulp.task('jshint', function () {
   var src = lib;
-  src.push('test/**/*.js');
+  src.push('test/**/*.js', 'scripts/**/*.js');
   return gulp.src(src)
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))

@@ -1,3 +1,5 @@
+'use strict';
+
 var  elasticsearch = require('elasticsearch'),
   fs = require('fs'),
   client = new elasticsearch.Client({
@@ -27,7 +29,7 @@ var addRow = function(row) {
 
 fs.readFile( __dirname + '/fixtures/video.json', 'utf8', function (err, data) {
   if (err) {
-    throw err
+    throw err;
   }
   var obj = JSON.parse(data);
   obj.forEach(function(row) {
