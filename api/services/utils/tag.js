@@ -72,7 +72,7 @@ module.exports = {
   },
 
   getRandom: function () {
-    return this.tags[_.random(this.tags.length)];
+    return this.tags[_.random((this.tags.length - 1))];
   },
 
   getConvert: function(str) {

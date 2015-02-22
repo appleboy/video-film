@@ -19,11 +19,10 @@ describe('Tag Model', function() {
     });
   });
 
-  it('return Promise object', function(done) {
+  it('return Promise object', function() {
     var Promise = Tag.videos({'promise': true, 'tag': 'top10', 'limit': 1});
 
     Promise.should.not.be.a.Promise;
-    done();
   });
 
   it('find top10 tag via promise', function(done) {

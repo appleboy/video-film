@@ -59,7 +59,7 @@ describe('Video Model', function() {
     });
   });
 
-  it('return Promise object', function(done) {
+  it('return Promise object', function() {
     var Promise = Video.search({
       promise: true,
       sort: true,
@@ -68,7 +68,6 @@ describe('Video Model', function() {
     });
 
     Promise.should.not.be.a.Promise;
-    done();
   });
 
   it ('test video search via promise', function(done) {
