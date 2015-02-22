@@ -1,6 +1,7 @@
 'use strict';
 
-var should = require("should");
+/*jshint -W079 */
+var should = require('should');
 
 describe('Users', function() {
   it('should not be empty', function(done) {
