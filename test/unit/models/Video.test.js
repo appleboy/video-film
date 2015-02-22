@@ -67,6 +67,8 @@ describe('Videos', function() {
       q: 'recap'
     });
 
+    Promise.should.not.be.a.Promise;
+
     BluePromise.props({
       videos: Promise
     }).then(function(result) {

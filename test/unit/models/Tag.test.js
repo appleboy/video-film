@@ -19,6 +19,8 @@ describe('Tags', function() {
 
     var Promise = Tag.videos({'promise': true, 'tag': 'top10', 'limit': 1});
 
+    Promise.should.not.be.a.Promise;
+
     BluePromise.props({
       tags: Promise
     }).then(function(result) {
