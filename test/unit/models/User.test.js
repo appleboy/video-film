@@ -3,7 +3,7 @@
 /*jshint -W079 */
 var should = require('should');
 
-describe('Users', function() {
+describe('User Model', function() {
   it('should not be empty', function(done) {
     User.find().exec(function(err, rows) {
       rows.length.should.be.eql(fixtures.user.length).and.be.above(0);

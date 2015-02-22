@@ -2,7 +2,7 @@
 
 var BluePromise = require('bluebird');
 
-describe('Videos', function() {
+describe('Video Model', function() {
   it ('should not be empty', function(done) {
     Video.find().exec(function(err, rows) {
       rows.length.should.be.eql(fixtures.video.length);
@@ -49,7 +49,7 @@ describe('Videos', function() {
     });
   });
 
-  it ('test video search sort', function(done) {
+  it ('test sort parameter', function(done) {
     Video.search({
       sort: true,
       limit: 1,
@@ -59,7 +59,7 @@ describe('Videos', function() {
     });
   });
 
-  it ('test video search promise', function(done) {
+  it('return Promise object', function(done) {
     var Promise = Video.search({
       promise: true,
       sort: true,
@@ -68,6 +68,16 @@ describe('Videos', function() {
     });
 
     Promise.should.not.be.a.Promise;
+    done();
+  });
+
+  it ('test video search via promise', function(done) {
+    var Promise = Video.search({
+      promise: true,
+      sort: true,
+      limit: 1,
+      q: 'recap'
+    });
 
     BluePromise.props({
       videos: Promise
