@@ -3,15 +3,13 @@
 describe('Utility Tool', function() {
   describe('numbers', function() {
     it('addCommas testing', function (done) {
-      Utility.numbers.addCommas(1000).should.equal('1,000');
-      Utility.numbers.addCommas(1000).should.not.be.eql(1000);
+      Utility.numbers.addCommas(1000).should.equal('1,000').and.should.not.be.eql(1000);
 
       done();
     });
 
     it('toInt testing', function (done) {
-      Utility.numbers.toInt('1000').should.be.eql(1000);
-      Utility.numbers.toInt('1000').should.not.be.eql('1000');
+      Utility.numbers.toInt('1000').should.be.eql(1000).and.should.not.be.eql('1000');
 
       done();
     });
@@ -56,6 +54,7 @@ describe('Utility Tool', function() {
       Utility.format.isNumber('10').should.be.ok;
       Utility.format.isNumber('0').should.be.ok;
       Utility.format.isNumber('-10').should.be.ok;
+      Utility.format.isNumber('a').should.not.be.ok;
 
       done();
     });
@@ -64,6 +63,7 @@ describe('Utility Tool', function() {
       Utility.format.isFloat('1.01').should.be.ok;
       Utility.format.isFloat('10').should.be.ok;
       Utility.format.isFloat('-10.01').should.be.ok;
+      Utility.format.isNumber('a').should.not.be.ok;
 
       done();
     });

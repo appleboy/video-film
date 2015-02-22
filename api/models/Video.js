@@ -13,8 +13,7 @@ var BaseModel = require('../services/BaseModel'),
   path = require('path'),
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
-    host: 'localhost:9200',
-    log: 'trace'
+    host: 'localhost:9200'
   });
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
