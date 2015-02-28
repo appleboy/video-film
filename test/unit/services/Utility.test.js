@@ -64,6 +64,7 @@ describe('Utility Tool', function() {
     it('get tag string', function () {
       Utility.tag.getValue('top_plays').should.equal('精彩好球');
       Utility.tag.getValue('play_week').should.equal('每週十大');
+      Utility.tag.getValue('kings').should.equal('沙加緬度國王 Sacramento Kings');
     });
 
     it('get ID string', function () {
