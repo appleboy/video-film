@@ -20,7 +20,7 @@ var BaseModel = require('../services/BaseModel'),
 // check ElasticSearch server exist.
 ElasticSearchClient.ping({
   requestTimeout: 1000,
-  hello: "elasticsearch!"
+  hello: 'elasticsearch!'
 }, function (error) {
   if (error) {
     console.error('elasticsearch cluster is down!');
