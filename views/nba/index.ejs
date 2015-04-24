@@ -3,33 +3,23 @@
 </div>
 
 <div class="row">
-  <p class="fantasypk"><a href="http://goo.gl/61mRQX" data-module="adsense" data-title="[廣告] 全民總教頭" data-url="http://goo.gl/61mRQX"><img src="images/ad/fantasypk_2.gif" /></a></p>
-  <%- partial('../partials/video.ejs', {videos: latest_videos}) %>
-</div>
-
-<div class="page-header">
-  <h2>最新精彩賽事</h2>
-</div>
-
-<div class="row">
   <p class="google-adsense">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- responsive ad -->
+    <!-- video-film responsive ad -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-8029787021384054"
-         data-ad-slot="9639025813"
+         data-ad-slot="9998952613"
          data-ad-format="auto"></ins>
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </p>
-  <%- partial('../partials/video.ejs', {videos: recap_videos}) %>
-  <p class="more"><a href="/search?q=*recap*&sort=1">更多精彩賽事...</a></p>
+  <%- partial('../partials/video.ejs', {videos: latest_videos}) %>
 </div>
 
 <div class="page-header">
-  <h2>最新精彩好球</h2>
+  <h2>最新精彩賽事</h2>
 </div>
 
 <div class="row">
@@ -45,6 +35,15 @@
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </p>
+  <%- partial('../partials/video.ejs', {videos: recap_videos}) %>
+  <p class="more"><a href="/search?q=*recap*&sort=1">更多精彩賽事...</a></p>
+</div>
+
+<div class="page-header">
+  <h2>最新精彩好球</h2>
+</div>
+
+<div class="row">
   <%- partial('../partials/video.ejs', {videos: top_videos}) %>
   <p class="more"><a href="/channel/top10">更多精彩好球...</a></p>
 </div>
