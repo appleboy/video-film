@@ -11,10 +11,24 @@ var BaseModel = require('../services/BaseModel'),
   microtime = require('microtime'),
   BluePromise = require('bluebird'),
   path = require('path'),
+  elasticsearchDown = false,
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
     host: 'localhost:9200'
   });
+
+// check ElasticSearch server exist.
+ElasticSearchClient.ping({
+  requestTimeout: 1000,
+  hello: "elasticsearch!"
+}, function (error) {
+  if (error) {
+    console.error('elasticsearch cluster is down!');
+    elasticsearchDown = true;
+  } else {
+    console.log('All is well');
+  }
+});
 
 module.exports = _.merge(_.cloneDeep(BaseModel), {
   tableName: 'videos',
@@ -126,6 +140,10 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
         size: limit,
         q: q.replace(/[-_\/]/ig, ' ').trim()
       };
+
+    if (elasticsearchDown) {
+      return false;
+    }
 
     if (!Utility.format.isEmpty(sort)) {
       options = _.merge({sort: 'date:desc'}, options);

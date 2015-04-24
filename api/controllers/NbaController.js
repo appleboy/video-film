@@ -52,7 +52,7 @@ module.exports = {
       video: findPromise
     }).then(function(result) {
 
-      var rows = result.related.hits.hits,
+      var rows = !_.isEmpty(result.related) ? result.related.hits.hits : [],
         videos = [];
 
       // check video exist
