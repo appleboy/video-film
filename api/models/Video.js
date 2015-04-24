@@ -142,7 +142,7 @@ module.exports = _.merge(_.cloneDeep(BaseModel), {
       };
 
     if (elasticsearchDown) {
-      return false;
+      return (callback) ? callback(false) : false;
     }
 
     if (!Utility.format.isEmpty(sort)) {

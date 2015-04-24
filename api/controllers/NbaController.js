@@ -97,8 +97,8 @@ module.exports = {
     }
 
     Video.search(req.allParams(), function (data) {
-      var total_counts = data.hits.total,
-        rows = data.hits.hits,
+      var total_counts = _.isEmpty(data) ? 0 : data.hits.total,
+        rows = _.isEmpty(data) ? [] : data.hits.hits,
         videos = [];
 
       _(rows).map(function(row) {
