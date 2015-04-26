@@ -7,6 +7,8 @@
 
 'use strict';
 
+require('dotenv').load();
+
 var BaseModel = require('../services/BaseModel'),
   microtime = require('microtime'),
   BluePromise = require('bluebird'),
@@ -14,7 +16,7 @@ var BaseModel = require('../services/BaseModel'),
   elasticsearchDown = false,
   elasticsearch = require('elasticsearch'),
   ElasticSearchClient = new elasticsearch.Client({
-    host: 'localhost:9200'
+    host: process.env.ELASTICSEARCH_HOST
   });
 
 // check ElasticSearch server exist.
