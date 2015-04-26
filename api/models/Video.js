@@ -21,7 +21,7 @@ var BaseModel = require('../services/BaseModel'),
 
 // check ElasticSearch server exist.
 ElasticSearchClient.ping({
-  requestTimeout: 1000,
+  requestTimeout: 5000,
   hello: 'elasticsearch!'
 }, function (error) {
   if (error) {
