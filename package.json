@@ -55,7 +55,7 @@
     "gulp-jshint": "^1.9.2",
     "gulp-load-plugins": "^1.2.1",
     "gulp-mocha": "^2.0.0",
-    "jshint-stylish": "^1.0.1",
+    "jshint-stylish": "^2.2.0",
     "mocha": "^2.1.0",
     "should": "^8.2.2",
     "supertest": "^1.2.0"
